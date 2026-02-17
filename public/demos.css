@@ -1,0 +1,2112 @@
+/* ============================================
+   TexTab Feature Demos - Exact App Component Styles
+   LIGHT MODE
+   ============================================ */
+
+/* Feature Demo Container */
+.fd-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    height: auto;
+}
+
+/* Demo Window - macOS Light Style */
+.demo-window {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15), 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Browser/Editor Bar */
+.demo-browser-bar {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background: #f5f5f5;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    gap: 8px;
+}
+
+.demo-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e0e0e0;
+}
+
+.demo-dot:nth-child(1) { background: #ff5f56; }
+.demo-dot:nth-child(2) { background: #ffbd2e; }
+.demo-dot:nth-child(3) { background: #27ca3f; }
+
+.demo-url {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+/* Demo Content Area - Editor */
+.demo-content {
+    position: relative;
+    padding: 24px;
+    min-height: 420px;
+    background: #ffffff;
+}
+
+/* Quote Container */
+.demo-quote-container {
+    position: relative;
+}
+
+.demo-quote {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #1a1a1a;
+    font-style: italic;
+    margin: 0 0 12px 0;
+}
+
+.demo-quote-author {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* Error word styling */
+#error-word {
+    color: #dc2626;
+    text-decoration: underline wavy #dc2626;
+    text-underline-offset: 3px;
+    position: relative;
+}
+
+#error-word.selected {
+    text-decoration: none;
+}
+
+#error-word.corrected {
+    color: #059669;
+    text-decoration: none;
+    background: rgba(16, 185, 129, 0.15);
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+/* Text cursor (blinking line) */
+.demo-text-cursor {
+    position: absolute;
+    width: 2px;
+    background: #007aff;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.demo-text-cursor.visible {
+    opacity: 1;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Selection highlight */
+.demo-highlight {
+    position: absolute;
+    background: rgba(0, 122, 255, 0.3);
+    border-radius: 3px;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 4;
+}
+
+.demo-highlight.visible {
+    opacity: 1;
+}
+
+/* Marker (numbered circle) */
+.demo-marker {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #007aff;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 6;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+.demo-marker.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Text Selection */
+.demo-selection {
+    background: rgba(0, 122, 255, 0.25);
+    border-radius: 3px;
+    padding: 2px 4px;
+}
+
+/* ============================================
+   TexTab Popup - Main Action Popup (Light)
+   ============================================ */
+
+.textab-popup {
+    position: absolute;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 10;
+}
+
+.textab-popup.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.textab-popup.expanded {
+    width: 520px;
+}
+
+/* Popup Header */
+.textab-popup-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.textab-action-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    background: rgba(0, 122, 255, 0.1);
+    border-radius: 6px;
+    font-family: 'Nunito', -apple-system, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #007aff;
+}
+
+.textab-close-btn {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+}
+
+.textab-close-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #666;
+}
+
+/* Search Bar */
+.textab-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+    padding: 10px 12px;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.textab-search-icon {
+    color: #999;
+    flex-shrink: 0;
+}
+
+.textab-search-input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    font-family: 'Nunito', -apple-system, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+}
+
+.textab-search-input::placeholder {
+    color: #999;
+}
+
+/* Actions List */
+.textab-actions-list {
+    padding: 8px;
+    max-height: 340px;
+    overflow-y: auto;
+}
+
+.textab-action-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.textab-action-row:hover,
+.textab-action-row.selected {
+    background: #f5f5f5;
+}
+
+.textab-action-row.clicking {
+    background: #e8e8e8;
+    transform: scale(0.98);
+    transition: all 0.1s ease;
+}
+
+.textab-action-icon {
+    width: 24px;
+    color: #666;
+    flex-shrink: 0;
+}
+
+.textab-action-name {
+    flex: 1;
+    font-family: 'Nunito', -apple-system, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #555;
+}
+
+.textab-action-shortcut {
+    display: flex;
+    gap: 4px;
+}
+
+/* Keyboard Key */
+.textab-key {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #666;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.textab-key.pressed {
+    background: #007aff;
+    border-color: #007aff;
+    color: #fff;
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+/* New Action Row */
+.textab-new-action {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.textab-new-action:hover {
+    background: #f5f5f5;
+}
+
+.textab-new-action-icon {
+    width: 24px;
+    color: #007aff;
+}
+
+/* Popup Footer */
+.textab-popup-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: #fafafa;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.textab-footer-hint {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.textab-footer-text {
+    font-size: 11px;
+    color: #999;
+}
+
+/* ============================================
+   Loading State - Shimmer Skeleton (Light)
+   ============================================ */
+
+.textab-loading-content {
+    padding: 20px;
+}
+
+.textab-shimmer {
+    height: 14px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    animation: shimmer 1.2s infinite;
+}
+
+.textab-shimmer:nth-child(1) { width: 100%; }
+.textab-shimmer:nth-child(2) { width: 100%; }
+.textab-shimmer:nth-child(3) { width: 80%; }
+.textab-shimmer:nth-child(4) { width: 100%; }
+.textab-shimmer:nth-child(5) { width: 70%; }
+.textab-shimmer:nth-child(6) { width: 100%; }
+.textab-shimmer:nth-child(7) { width: 60%; }
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.textab-processing-text {
+    font-size: 11px;
+    color: #999;
+}
+
+/* ============================================
+   Result View (Light)
+   ============================================ */
+
+.textab-result-content {
+    padding: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.textab-result-text {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #333;
+    white-space: pre-wrap;
+}
+
+/* Result Buttons */
+.textab-result-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.textab-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-family: 'Nunito', -apple-system, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: none;
+}
+
+.textab-btn-secondary {
+    background: rgba(0, 122, 255, 0.1);
+    color: #007aff;
+}
+
+.textab-btn-secondary:hover {
+    background: rgba(0, 122, 255, 0.18);
+}
+
+.textab-btn-primary {
+    background: #007aff;
+    color: #fff;
+}
+
+.textab-btn-primary:hover {
+    background: #0066d6;
+}
+
+.textab-btn-primary:active,
+.textab-btn-primary.clicking {
+    transform: scale(0.92);
+    background: #0055b3;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.textab-btn-secondary.clicking {
+    transform: scale(0.92);
+    background: rgba(0, 122, 255, 0.25);
+}
+
+/* ============================================
+   Cursor - macOS Style
+   ============================================ */
+
+.demo-cursor {
+    position: absolute;
+    pointer-events: none;
+    z-index: 20;
+    opacity: 0;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), top 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+}
+
+.demo-cursor.visible {
+    opacity: 1;
+}
+
+/* macOS cursor image */
+.demo-cursor-img {
+    width: 32px;
+    height: 32px;
+}
+
+/* Pointer cursor */
+.demo-cursor-pointer {
+    display: block;
+}
+
+/* Text cursor (I-beam) */
+.demo-cursor-text {
+    display: none;
+}
+
+/* Cursor click animation */
+.demo-cursor.clicking .demo-cursor-pointer {
+    transform: scale(0.85);
+    transition: transform 0.08s ease;
+}
+
+/* ============================================
+   Shortcut Hint - 3D Keyboard Keys
+   ============================================ */
+
+.demo-shortcut {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 15;
+}
+
+.demo-shortcut.visible {
+    opacity: 1;
+}
+
+/* 3D Keyboard Key Style for Shortcut Hint */
+.demo-shortcut .textab-key {
+    min-width: 40px;
+    height: 40px;
+    padding: 0 14px;
+    background: linear-gradient(180deg, #ffffff 0%, #e8e8e8 100%);
+    border: 1px solid #b0b0b0;
+    border-bottom: 4px solid #888888;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #222;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    box-shadow:
+        0 3px 6px rgba(0, 0, 0, 0.15),
+        0 6px 12px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transition: all 0.12s ease;
+    opacity: 0;
+    transform: translateY(-10px) scale(0.9);
+}
+
+.demo-shortcut.visible .textab-key {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.demo-shortcut.visible .textab-key:nth-child(1) {
+    transition-delay: 0s;
+}
+
+.demo-shortcut.visible .textab-key:nth-child(2) {
+    transition-delay: 0.05s;
+}
+
+.demo-shortcut.visible .textab-key:nth-child(3) {
+    transition-delay: 0.1s;
+}
+
+.demo-shortcut .textab-key.pressed {
+    background: linear-gradient(180deg, #339cff 0%, #007aff 100%);
+    border: 1px solid #0055b3;
+    border-bottom: 4px solid #004494;
+    color: #fff;
+    transform: translateY(2px) scale(0.98);
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================
+   Caption
+   ============================================ */
+
+.demo-caption {
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* ============================================
+   Corrected Text Highlight (Light)
+   ============================================ */
+
+.demo-corrected {
+    color: #059669;
+    background: rgba(16, 185, 129, 0.12);
+    border-radius: 2px;
+    padding: 2px 4px;
+}
+
+/* Error underline */
+.demo-error {
+    text-decoration: underline wavy #ef4444;
+    text-underline-offset: 3px;
+    color: #ef4444;
+}
+
+/* ============================================
+   Tweet Demo - X/Twitter Compose UI
+   ============================================ */
+
+.tweet-demo .demo-content {
+    padding: 0;
+    min-height: 380px;
+}
+
+.tweet-composer {
+    background: #ffffff;
+    position: relative;
+}
+
+.tweet-header {
+    display: flex;
+    align-items: flex-start;
+    padding: 16px 16px 0 16px;
+    gap: 12px;
+}
+
+.tweet-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.tweet-audience {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 12px;
+    border: 1px solid #cfd9de;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1d9bf0;
+    cursor: pointer;
+}
+
+.tweet-audience:hover {
+    background: rgba(29, 155, 240, 0.1);
+}
+
+.tweet-input-area {
+    padding: 12px 16px 12px 68px;
+    min-height: 120px;
+}
+
+.tweet-text {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #0f1419;
+    margin: 0;
+    word-wrap: break-word;
+}
+
+.tweet-text.selected {
+    background: rgba(29, 155, 240, 0.2);
+    border-radius: 4px;
+}
+
+.tweet-text.improved {
+    color: #059669;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.tweet-highlight {
+    position: absolute;
+    background: rgba(29, 155, 240, 0.2);
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 4;
+}
+
+.tweet-highlight.visible {
+    opacity: 1;
+}
+
+.tweet-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-top: 1px solid #eff3f4;
+}
+
+.tweet-tools {
+    display: flex;
+    gap: 4px;
+}
+
+.tweet-tool-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    border-radius: 50%;
+    color: #1d9bf0;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.tweet-tool-btn:hover {
+    background: rgba(29, 155, 240, 0.1);
+}
+
+.tweet-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.tweet-char-count {
+    font-size: 14px;
+    color: #536471;
+}
+
+.tweet-post-btn {
+    padding: 8px 20px;
+    background: #0f1419;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.tweet-post-btn:hover {
+    background: #272c30;
+}
+
+/* Position popups correctly in tweet demo */
+.tweet-demo .textab-popup {
+    left: 68px;
+}
+
+/* ============================================
+   Gmail Demo - Compose UI
+   ============================================ */
+
+.gmail-demo .demo-content {
+    padding: 0;
+    min-height: 420px;
+    overflow: visible;
+}
+
+.gmail-composer {
+    background: #ffffff;
+    position: relative;
+    border-radius: 0 0 8px 8px;
+}
+
+.gmail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    background: #404040;
+    color: #ffffff;
+    border-radius: 8px 8px 0 0;
+}
+
+.gmail-title {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.gmail-header-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.gmail-header-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.gmail-header-btn:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.gmail-fields {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.gmail-field {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+}
+
+.gmail-field:last-child {
+    border-bottom: none;
+}
+
+.gmail-field-label {
+    color: #5f6368;
+    width: 60px;
+    flex-shrink: 0;
+}
+
+.gmail-recipient {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.gmail-recipient-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    background: #e8eaed;
+    border-radius: 16px;
+    font-size: 13px;
+    color: #202124;
+}
+
+.gmail-subject-text {
+    color: #202124;
+}
+
+.gmail-body-area {
+    padding: 16px;
+    min-height: 140px;
+}
+
+.gmail-body-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #202124;
+    margin: 0;
+    word-wrap: break-word;
+}
+
+.gmail-body-text.selected {
+    background: rgba(26, 115, 232, 0.15);
+    border-radius: 4px;
+}
+
+.gmail-body-text.improved {
+    color: #059669;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 4px;
+    padding: 8px;
+}
+
+.gmail-highlight {
+    position: absolute;
+    background: rgba(26, 115, 232, 0.2);
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 4;
+}
+
+.gmail-highlight.visible {
+    opacity: 1;
+}
+
+.gmail-toolbar {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-top: 1px solid #e0e0e0;
+    gap: 8px;
+}
+
+.gmail-send-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #0b57d0;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.gmail-send-btn:hover {
+    background: #0842a0;
+}
+
+.gmail-format-tools {
+    display: flex;
+    gap: 2px;
+    margin-left: 8px;
+}
+
+.gmail-tool-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: #5f6368;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.gmail-tool-btn:hover {
+    background: #f1f3f4;
+}
+
+.gmail-more-actions {
+    display: flex;
+    gap: 2px;
+    margin-left: auto;
+}
+
+.gmail-trash-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: #5f6368;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.gmail-trash-btn:hover {
+    background: #f1f3f4;
+}
+
+/* Position popups correctly in gmail demo */
+.gmail-demo .textab-popup {
+    left: 16px;
+}
+
+/* ============================================
+   Code Demo - VS Code Style IDE
+   ============================================ */
+
+.code-demo .demo-content {
+    padding: 0;
+    min-height: 420px;
+    background: #1e1e1e;
+    overflow: visible;
+}
+
+.code-demo .demo-browser-bar {
+    display: none;
+}
+
+/* VS Code Title Bar */
+.vscode-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    height: 38px;
+    background: #323233;
+    border-radius: 8px 8px 0 0;
+}
+
+.vscode-titlebar-left {
+    display: flex;
+    gap: 8px;
+}
+
+.vscode-titlebar-left .demo-dot {
+    width: 12px;
+    height: 12px;
+}
+
+.vscode-title {
+    font-size: 13px;
+    color: #cccccc;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+.vscode-titlebar-right {
+    width: 60px;
+}
+
+/* VS Code Container */
+.vscode-container {
+    display: flex;
+    height: calc(100% - 38px);
+    min-height: 380px;
+}
+
+/* VS Code Sidebar */
+.vscode-sidebar {
+    width: 48px;
+    background: #333333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8px;
+    gap: 4px;
+}
+
+.vscode-sidebar-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #858585;
+    cursor: pointer;
+    border-left: 2px solid transparent;
+}
+
+.vscode-sidebar-icon:hover {
+    color: #cccccc;
+}
+
+.vscode-sidebar-icon.active {
+    color: #ffffff;
+    border-left-color: #ffffff;
+}
+
+/* VS Code Editor */
+.vscode-editor {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #1e1e1e;
+}
+
+/* VS Code Tabs */
+.vscode-tabs {
+    display: flex;
+    background: #252526;
+    border-bottom: 1px solid #1e1e1e;
+}
+
+.vscode-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #1e1e1e;
+    border-right: 1px solid #252526;
+    font-size: 13px;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+.vscode-tab.active {
+    background: #1e1e1e;
+    border-top: 1px solid #007acc;
+    margin-top: -1px;
+}
+
+.vscode-tab-close {
+    color: #858585;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.vscode-tab-close:hover {
+    color: #ffffff;
+}
+
+/* VS Code Code Area */
+.vscode-code-area {
+    flex: 1;
+    display: flex;
+    padding: 16px 0;
+    position: relative;
+    overflow: visible;
+}
+
+.vscode-line-numbers {
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+    color: #858585;
+    font-family: 'SF Mono', 'Monaco', 'Menlo', 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 22px;
+    text-align: right;
+    user-select: none;
+}
+
+.vscode-code-content {
+    flex: 1;
+    padding-right: 16px;
+    font-family: 'SF Mono', 'Monaco', 'Menlo', 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 22px;
+    color: #d4d4d4;
+}
+
+.code-line {
+    min-height: 22px;
+    white-space: pre;
+}
+
+/* Syntax highlighting */
+.code-keyword {
+    color: #569cd6;
+}
+
+.code-string {
+    color: #ce9178;
+}
+
+.code-comment {
+    color: #6a9955;
+}
+
+.code-function {
+    color: #dcdcaa;
+}
+
+.code-variable {
+    color: #9cdcfe;
+}
+
+.code-regex {
+    color: #d16969;
+}
+
+/* Code selection */
+#code-comment.selected {
+    background: rgba(38, 79, 120, 0.6);
+    border-radius: 2px;
+}
+
+#code-comment.generated .code-keyword,
+#code-comment.generated .code-function,
+#code-comment.generated .code-variable {
+    animation: fadeInCode 0.3s ease;
+}
+
+@keyframes fadeInCode {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.code-highlight {
+    background: rgba(38, 79, 120, 0.4);
+}
+
+.code-result {
+    font-family: 'SF Mono', 'Monaco', 'Menlo', 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    background: #1e1e1e;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+/* VS Code Status Bar */
+.vscode-statusbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    height: 24px;
+    background: #007acc;
+    border-radius: 0 0 8px 8px;
+}
+
+.vscode-statusbar-left,
+.vscode-statusbar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.vscode-status-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+/* Position popups correctly in code demo */
+.code-demo .textab-popup {
+    left: 60px;
+    max-width: 340px;
+}
+
+.code-demo .textab-popup.expanded {
+    max-width: 380px;
+}
+
+.code-demo .code-result {
+    padding: 8px 10px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+/* Text cursor for dark theme */
+.code-demo .demo-cursor-text path {
+    stroke: #ffffff;
+}
+
+/* ============================================
+   Notion Demo - Document Summarization UI
+   ============================================ */
+
+.notion-demo .demo-browser-bar {
+    display: none;
+}
+
+.notion-demo .demo-content {
+    padding: 0;
+    min-height: 420px;
+    background: #ffffff;
+    overflow: visible;
+}
+
+/* Notion Title Bar - macOS App Style */
+.notion-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    height: 38px;
+    background: #f7f6f3;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px 12px 0 0;
+}
+
+.notion-titlebar-left {
+    display: flex;
+    gap: 8px;
+    width: 60px;
+}
+
+.notion-titlebar-center {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.notion-logo {
+    flex-shrink: 0;
+}
+
+.notion-titlebar-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: #37352f;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+.notion-titlebar-right {
+    width: 60px;
+}
+
+.notion-page {
+    display: flex;
+    height: 100%;
+    min-height: 420px;
+}
+
+/* Notion Sidebar */
+.notion-sidebar {
+    width: 200px;
+    background: #f7f6f3;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    padding: 12px 8px;
+}
+
+.notion-sidebar-header {
+    padding: 4px 8px 12px 8px;
+}
+
+.notion-workspace {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.notion-workspace:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.notion-workspace-icon {
+    font-size: 16px;
+}
+
+.notion-workspace-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #37352f;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+.notion-nav {
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    margin-bottom: 8px;
+}
+
+.notion-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #787774;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+.notion-nav-item:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.notion-nav-icon {
+    font-size: 14px;
+    width: 20px;
+    text-align: center;
+}
+
+.notion-section-title {
+    padding: 8px 8px 4px 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #787774;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+.notion-pages {
+    flex: 1;
+}
+
+.notion-page-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #37352f;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+.notion-page-item:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.notion-page-item.active {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.notion-page-icon {
+    font-size: 14px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Notion Editor */
+.notion-editor {
+    flex: 1;
+    padding: 40px 60px;
+    position: relative;
+    overflow: visible;
+}
+
+.notion-page-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.notion-page-emoji {
+    font-size: 40px;
+}
+
+.notion-page-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #37352f;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    margin: 0;
+}
+
+.notion-content-area {
+    position: relative;
+}
+
+.notion-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #37352f;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    margin: 0;
+}
+
+.notion-text.selected {
+    background: rgba(35, 131, 226, 0.15);
+    border-radius: 3px;
+}
+
+/* Notion result in popup - compact bullets */
+.notion-result-content {
+    padding: 12px 16px;
+}
+
+.notion-result-bullet {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #37352f;
+    padding: 1px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+/* Notion final bullet list in editor */
+.notion-final-bullets {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #37352f;
+}
+
+.notion-final-bullets div {
+    padding: 2px 0;
+}
+
+/* Position popups correctly in notion demo */
+.notion-demo .textab-popup {
+    width: 300px;
+}
+
+.notion-demo .textab-popup.expanded {
+    width: 340px;
+}
+
+/* ============================================
+   Settings Demo - Create Action Flow
+   ============================================ */
+
+.settings-demo .demo-browser-bar {
+    display: none;
+}
+
+.settings-demo .demo-content {
+    padding: 0;
+    min-height: 420px;
+    background: #ffffff;
+    overflow: visible;
+}
+
+/* Settings Title Bar - macOS App Style */
+.settings-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    height: 38px;
+    background: #f5f5f5;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px 12px 0 0;
+}
+
+.settings-titlebar-left {
+    display: flex;
+    gap: 8px;
+    width: 60px;
+}
+
+.settings-titlebar-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-titlebar-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+.settings-titlebar-right {
+    width: 60px;
+}
+
+/* Settings Content */
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+/* Settings Tabs */
+.settings-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+}
+
+.settings-tab {
+    font-family: 'Nunito', -apple-system, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.settings-tab:hover {
+    color: #666;
+}
+
+.settings-tab.active {
+    color: #0095ff;
+}
+
+/* Settings Main Layout */
+.settings-main {
+    display: flex;
+    flex: 1;
+    min-height: 360px;
+}
+
+/* Settings Sidebar */
+.settings-sidebar {
+    width: 180px;
+    background: #ffffff;
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-actions-list {
+    flex: 1;
+    padding: 8px;
+    overflow-y: auto;
+}
+
+.settings-action-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.settings-action-item:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.settings-action-item.active {
+    background: #f1f1ef;
+}
+
+.settings-action-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+}
+
+.settings-action-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.settings-action-name {
+    font-family: 'Nunito', -apple-system, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* New Action Button */
+.settings-new-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 16px;
+    margin-top: auto;
+    margin-bottom: 16px;
+    color: #0095ff;
+    cursor: pointer;
+}
+
+.settings-new-action-btn:hover {
+    background: rgba(0, 149, 255, 0.05);
+}
+
+.settings-new-action-plus {
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.settings-new-action-text {
+    font-family: 'Nunito', -apple-system, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Settings Editor */
+.settings-editor {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background: #ffffff;
+    position: relative;
+    padding-top: 20px;
+}
+
+/* Empty State */
+.settings-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+}
+
+.settings-empty-icon {
+    margin-bottom: 8px;
+}
+
+.settings-key-3d {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    background: linear-gradient(180deg, #ffffff 0%, #e8e8e8 100%);
+    border: 1px solid #b0b0b0;
+    border-bottom: 4px solid #888888;
+    border-radius: 12px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.settings-empty-title {
+    font-family: 'Nunito', -apple-system, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+.settings-empty-text {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.5;
+}
+
+.settings-empty-btn {
+    margin-top: 8px;
+    padding: 12px 32px;
+    font-family: 'Nunito', -apple-system, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    background: #0095ff;
+    border-radius: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #0073cc;
+    transition: all 0.1s ease;
+}
+
+.settings-empty-btn:hover {
+    background: #0088ee;
+}
+
+.settings-empty-btn.clicking {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #0073cc;
+}
+
+/* Editor Form */
+.settings-editor-form {
+    width: 100%;
+    padding: 16px 24px 20px 24px;
+}
+
+.settings-editor-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.settings-editor-icon {
+    color: #555;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.settings-editor-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.settings-editor-name {
+    flex: 1;
+    font-family: 'Nunito', -apple-system, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #555;
+    border: none;
+    outline: none;
+    background: transparent;
+    transition: transform 0.2s ease;
+}
+
+.settings-editor-name.focused {
+    transform: scale(1.02);
+    transform-origin: left center;
+}
+
+.settings-editor-name::placeholder {
+    color: #bbb;
+}
+
+/* Shortcut Field */
+.settings-editor-shortcut {
+    padding: 10px 12px;
+    background: #f1f1ef;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    margin-bottom: 16px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.settings-editor-shortcut.recording {
+    border-color: #0095ff;
+    background: rgba(0, 149, 255, 0.05);
+}
+
+.settings-shortcut-placeholder {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.settings-shortcut-recording {
+    font-size: 14px;
+    color: #0095ff;
+    font-weight: 500;
+}
+
+.settings-shortcut-key {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    background: linear-gradient(180deg, #f5f5f5 0%, #e0e0e0 100%);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Prompt Container */
+.settings-editor-prompt-container {
+    position: relative;
+    background: #f1f1ef;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.settings-editor-prompt {
+    width: 100%;
+    min-height: 140px;
+    padding: 12px;
+    font-family: 'Nunito', -apple-system, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    border: none;
+    outline: none;
+    background: transparent;
+    resize: none;
+    box-sizing: border-box;
+}
+
+.settings-editor-prompt::placeholder {
+    color: rgba(85, 85, 85, 0.4);
+}
+
+.settings-editor-prompt.focused {
+    background: rgba(0, 149, 255, 0.02);
+}
+
+.settings-enhance-btn {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 10px;
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    font-size: 12px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+}
+
+.settings-enhance-icon {
+    font-size: 11px;
+}
+
+/* Editor Buttons - Delete and Save (like in the app) */
+.settings-editor-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding: 0 4px;
+}
+
+.settings-btn-text {
+    font-family: 'Nunito', -apple-system, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.settings-btn-delete {
+    color: #ff4444;
+}
+
+.settings-btn-delete:hover {
+    opacity: 0.8;
+}
+
+.settings-btn-pill {
+    font-family: 'Nunito', -apple-system, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.settings-btn-save {
+    color: #0095ff;
+    background: rgba(0, 149, 255, 0.2);
+}
+
+.settings-btn-save:hover {
+    background: rgba(0, 149, 255, 0.3);
+}
+
+.settings-btn-save.clicking {
+    transform: scale(0.95);
+    background: rgba(0, 149, 255, 0.4);
+}
+
+/* Settings Shortcut Tooltip (like in the app - pushes content down) */
+.settings-tooltip {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 8px;
+    animation: tooltipSlideIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes tooltipSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.settings-tooltip.visible {
+    display: flex;
+}
+
+.settings-tooltip-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.settings-tooltip-label {
+    font-size: 13px;
+    color: #888;
+    margin-right: 4px;
+}
+
+.settings-tooltip-key {
+    width: 28px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    background: linear-gradient(180deg, #f5f5f5 0%, #e0e0e0 100%);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+    transition: all 0.08s ease;
+    position: relative;
+}
+
+.settings-tooltip-key.pressed {
+    transform: translateY(2px);
+    box-shadow: none;
+    background: linear-gradient(180deg, #e0e0e0 0%, #d0d0d0 100%);
+}
+
+.settings-tooltip-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    margin-top: 8px;
+}
+
+.settings-tooltip-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: #888;
+}
+
+.settings-tooltip-hint {
+    font-size: 11px;
+    color: #aaa;
+}
+
+.settings-tooltip-arrow {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #ffffff;
+    margin-top: -1px;
+}
+
+/* View transition wrapper and animations - macOS window switching style */
+.demo-transition-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    min-height: 500px;
+}
+
+.demo-transition-wrapper > .fd-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#settings-view.slide-out-left {
+    animation: slideOutLeft 0.4s ease-out forwards;
+}
+
+#browser-view.slide-in-right {
+    animation: slideInRight 0.4s ease-out forwards;
+}
+
+@keyframes slideOutLeft {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ============================================
+   Mobile Responsive Styles
+   ============================================ */
+
+/* Wrapper for scaling - use zoom for better proportions */
+.demo-container-wrapper {
+    zoom: 0.55;
+}
+
+@media (min-width: 480px) {
+    .demo-container-wrapper {
+        zoom: 0.65;
+    }
+}
+
+@media (min-width: 640px) {
+    .demo-container-wrapper {
+        zoom: 0.75;
+    }
+}
+
+@media (min-width: 768px) {
+    .demo-container-wrapper {
+        zoom: 0.85;
+    }
+}
+
+@media (min-width: 900px) {
+    .demo-container-wrapper {
+        zoom: 1;
+    }
+}
