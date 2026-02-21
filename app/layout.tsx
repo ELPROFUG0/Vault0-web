@@ -118,7 +118,7 @@ export default function RootLayout({
         <script defer data-auto-init src="https://cdn.jsdelivr.net/npm/@polar-sh/checkout@latest/dist/embed.global.js"></script>
       </head>
       <body
-        className={`${inter.variable} ${GeistMono.variable} ${instrumentSerif.variable} font-sans antialiased bg-web-background overscroll-contain`}
+        className={`${inter.variable} ${GeistMono.variable} ${instrumentSerif.variable} font-sans antialiased overscroll-contain`}
       >
         {children}
       </body>

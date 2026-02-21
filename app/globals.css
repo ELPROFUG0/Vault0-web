@@ -121,12 +121,12 @@
 }
 
 body {
-  background: linear-gradient(180deg, #00B4D8 0%, #CAF0F8 100%);
   min-height: 100vh;
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overscroll-behavior: contain;
+  background: #E9E7E6;
 }
 
 .animate-fade-in {
