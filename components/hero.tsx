@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { AppleIcon } from "@/components/icons/apple-icon"
 import { Dock } from "@/components/dock"
-import { AwardBadge } from "@/components/ui/award-badge"
 
 export function Hero() {
   return (
@@ -14,9 +13,6 @@ export function Hero() {
         <div className="w-full z-1 mx-auto animate-fade-in">
           <div className="h-[500px] px-6 md:px-8 relative flex w-full flex-col gap-8 items-center justify-center">
             <div className="flex flex-col gap-4 items-center justify-center">
-              <div className="opacity-0 animate-blur-fade-slide-in" style={{ animationDelay: "0.05s" }}>
-                <AwardBadge type="product-of-the-day" place={3} link="https://www.producthunt.com/products/vault0" />
-              </div>
               <div className="opacity-0 animate-blur-fade-slide-in" style={{ animationDelay: "0.08s" }}>
                 <Badge variant="beta">Currently in Beta</Badge>
               </div>

@@ -1,69 +1,16 @@
 export function Logo({ className }: { className?: string }) {
   return (
     <svg
-      width="20"
-      height="18"
-      viewBox="0 0 40 36"
+      viewBox="0 0 1024 1024"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
     >
-      <style>
-        {`
-          @keyframes catLeftEarTwitch {
-            0%, 9% { transform: rotate(0deg); }
-            12% { transform: rotate(-6deg); }
-            16%, 34% { transform: rotate(0deg); }
-            38% { transform: rotate(-10deg); }
-            42% { transform: rotate(-4deg); }
-            48%, 100% { transform: rotate(0deg); }
-          }
-          @keyframes catRightEarTwitch {
-            0%, 9% { transform: rotate(0deg); }
-            12% { transform: rotate(6deg); }
-            16%, 34% { transform: rotate(0deg); }
-            38% { transform: rotate(10deg); }
-            42% { transform: rotate(4deg); }
-            48%, 71% { transform: rotate(0deg); }
-            74% { transform: rotate(6deg); }
-            78%, 100% { transform: rotate(0deg); }
-          }
-          @keyframes catEyeMove {
-            0%, 8% { transform: translate(0, 0); }
-            10%, 18% { transform: translate(1px, 0); }
-            20%, 22% { transform: translate(1px, 0) scaleY(0.1); }
-            24%, 32% { transform: translate(1px, 0); }
-            35%, 48% { transform: translate(-0.5px, -0.5px); }
-            52%, 54% { transform: translate(0, 0) scaleY(0.1); }
-            56%, 68% { transform: translate(0, 0); }
-            72%, 82% { transform: translate(-0.5px, 0.5px); }
-            85%, 100% { transform: translate(0, 0); }
-          }
-          .cat-ear-left {
-            animation: catLeftEarTwitch 5s ease-in-out infinite;
-            transform-origin: bottom right;
-            transform-box: fill-box;
-          }
-          .cat-ear-right {
-            animation: catRightEarTwitch 5s ease-in-out infinite;
-            transform-origin: bottom left;
-            transform-box: fill-box;
-          }
-          .cat-eye {
-            animation: catEyeMove 5s ease-in-out infinite;
-            transform-origin: center;
-            transform-box: fill-box;
-          }
-        `}
-      </style>
-      <path className="cat-ear-left" d="M8 14 L12 2 L16 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-      <path className="cat-ear-right" d="M24 14 L28 2 L32 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-      <path d="M16 14 L24 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
-      <path d="M6 20 Q2 26 8 32" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-      <path d="M34 20 Q38 26 32 32" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-      <circle className="cat-eye" cx="14" cy="24" r="2.5" fill="currentColor"/>
-      <circle className="cat-eye" cx="26" cy="24" r="2.5" fill="currentColor"/>
+      <path
+        d="M281.63,886.24c-56.84-30.6-113.53-61.45-170.58-91.71-40.36-21.41-59.41-53.27-59.38-96.77.09-122.22-.28-244.44-1.26-366.65-.36-44.9,18.43-77.9,60.33-100.53,114.17-61.66,227.86-124.1,341.69-186.31,38.25-20.9,76.22-21.84,115.05-.84,116.1,62.79,232.43,125.23,348.7,187.74,37.06,19.93,56.29,49.92,56.47,89.86.58,126.36.79,252.72.94,379.09.05,39.91-18.28,70.4-55.2,90.56-115.74,63.21-231.61,126.22-347.29,189.53-38.6,21.13-76.76,20.63-115.15-.05-58.11-31.3-116.24-62.57-174.36-93.86l.04-.06ZM683.17,235.65c-40.24-21.66-80.46-43.35-120.72-64.97-33.49-17.98-67.38-18.43-100.78-.39-74.62,40.31-149.1,80.84-223.33,121.76-37.84,20.86-37.11,52.43,1.26,73.19,70.17,37.96,139.74,76.99,211.02,113.02,45,22.75,63.57,55.4,62.6,102.53-1.56,76.62-.44,153.29.13,229.94.28,37.53,29.63,53.43,64.35,34.72,75.31-40.58,150.23-81.78,225.3-122.74,33.53-18.3,49.97-46,49.96-82.09-.04-86.32-.27-172.63-.8-258.95-.23-36.91-17.71-64.76-52.08-83.15-39.02-20.88-77.94-41.92-116.92-62.86Z"
+        fill="currentColor"
+      />
     </svg>
   )
 }

@@ -1,10 +1,10 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Logo } from "@/components/icons/logo"
-import { GitHubIcon, StarIcon } from "@/components/icons/social-icons"
+import { AppleIcon } from "@/components/icons/apple-icon"
 
 export function Header() {
   const [hoverStyle, setHoverStyle] = useState<{
@@ -14,25 +14,6 @@ export function Header() {
     scale: number
   }>({ opacity: 0, left: 0, width: 0, scale: 0.8 })
   const navContainerRef = useRef<HTMLDivElement>(null)
-  const [stars, setStars] = useState<number | null>(null)
-
-  useEffect(() => {
-    async function fetchStars() {
-      try {
-        const response = await fetch(
-          "https://api.github.com/repos/Vault0App/Vault0"
-        )
-        if (response.ok) {
-          const data = await response.json()
-          setStars(data.stargazers_count)
-        }
-      } catch (error) {
-        console.error("Failed to fetch GitHub stars:", error)
-      }
-    }
-
-    fetchStars()
-  }, [])
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const target = e.currentTarget
@@ -118,38 +99,14 @@ export function Header() {
                 </Link>
               </div>
 
-              {/* Right - GitHub button */}
+              {/* Right - Download button */}
               <div className="flex items-center justify-end gap-2 px-0 animate-blue-fade-in">
-                {/* Desktop: GitHub with stars */}
-                <a
-                  href="https://github.com/Vault0App/Vault0"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hidden sm:block"
-                >
-                  <Button variant="secondary" size="sm" className="">
-                    <GitHubIcon className="size-4" />
-                    GitHub
-                    {stars !== null && (
-                      <span className="flex items-center gap-1 ml-1">
-                        <StarIcon className="size-3" />
-                        {stars}
-                      </span>
-                    )}
+                <Link href="/download">
+                  <Button variant="secondary" size="sm">
+                    <AppleIcon className="size-4" />
+                    Download
                   </Button>
-                </a>
-                {/* Mobile: GitHub link without stars */}
-                <a
-                  href="https://github.com/Vault0App/Vault0"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="sm:hidden"
-                >
-                  <Button variant="secondary" size="sm" className="">
-                    <GitHubIcon className="size-4" />
-                    GitHub
-                  </Button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

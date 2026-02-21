@@ -121,7 +121,8 @@
 }
 
 body {
-  background: var(--web-background);
+  background: linear-gradient(180deg, #00B4D8 0%, #CAF0F8 100%);
+  min-height: 100vh;
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
