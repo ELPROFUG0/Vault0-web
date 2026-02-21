@@ -9,7 +9,7 @@ const footerLinks = [
   { label: "Terms", href: "/terms" },
   { label: "Privacy", href: "/privacy" },
   { label: "Feedback", href: "/feedback" },
-  { label: "support@textab.io", href: "mailto:support@textab.io" },
+  { label: "support@vault0.app", href: "mailto:support@vault0.app" },
 ]
 
 export function Footer() {
@@ -82,7 +82,7 @@ export function Footer() {
       {/* Logo and copyright */}
       <div className="flex flex-row items-center gap-2">
         <Logo className="size-4 text-foreground/50" />
-        <span className="text-foreground/50 text-xs">TexTab © 2025</span>
+        <span className="text-foreground/50 text-xs">Vault0 © 2025</span>
       </div>
     </div>
   )

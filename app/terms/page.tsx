@@ -17,7 +17,7 @@ export default function TermsPage() {
               Terms of Service
             </h1>
             <p className="text-foreground/65 text-sm max-w-md leading-relaxed">
-              Please read these terms carefully before using TexTab.
+              Please read these terms carefully before using Vault0.
             </p>
           </div>
 
@@ -32,7 +32,7 @@ export default function TermsPage() {
                 Acceptance of Terms
               </h2>
               <p className="text-sm text-foreground/70 leading-relaxed">
-                By downloading, installing, or using TexTab, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the app.
+                By downloading, installing, or using Vault0, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the app.
               </p>
             </div>
 
@@ -45,7 +45,7 @@ export default function TermsPage() {
                 Description of Service
               </h2>
               <p className="text-sm text-foreground/70 leading-relaxed mb-4">
-                TexTab is an AI-powered keyboard shortcuts application for macOS that allows you to:
+                Vault0 is an AI-powered keyboard shortcuts application for macOS that allows you to:
               </p>
               <ul className="space-y-2 text-sm text-foreground/70">
                 <li className="flex items-start gap-2">
@@ -111,7 +111,7 @@ export default function TermsPage() {
                 Intellectual Property
               </h2>
               <p className="text-sm text-foreground/70 leading-relaxed">
-                TexTab and its original content, features, and functionality are owned by us and are protected by international copyright, trademark, and other intellectual property laws.
+                Vault0 and its original content, features, and functionality are owned by us and are protected by international copyright, trademark, and other intellectual property laws.
               </p>
             </div>
 
@@ -124,7 +124,7 @@ export default function TermsPage() {
                 Subscriptions
               </h2>
               <p className="text-sm text-foreground/70 leading-relaxed mb-4">
-                TexTab offers optional subscriptions for premium features (&quot;TexTab Pro&quot;). Subscriptions are processed through our payment provider and are subject to the following terms:
+                Vault0 offers optional subscriptions for premium features (&quot;Vault0 Pro&quot;). Subscriptions are processed through our payment provider and are subject to the following terms:
               </p>
               <ul className="space-y-2 text-sm text-foreground/70">
                 <li className="flex items-start gap-2">
@@ -151,7 +151,7 @@ export default function TermsPage() {
                 Disclaimer
               </h2>
               <p className="text-sm text-foreground/70 leading-relaxed mb-4">
-                TexTab is provided &quot;as is&quot; without warranties of any kind. We do not guarantee that:
+                Vault0 is provided &quot;as is&quot; without warranties of any kind. We do not guarantee that:
               </p>
               <ul className="space-y-2 text-sm text-foreground/70">
                 <li className="flex items-start gap-2">
@@ -181,7 +181,7 @@ export default function TermsPage() {
                 Limitation of Liability
               </h2>
               <p className="text-sm text-foreground/70 leading-relaxed">
-                To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of TexTab, including any damages arising from AI-generated content.
+                To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of Vault0, including any damages arising from AI-generated content.
               </p>
             </div>
 
@@ -209,10 +209,10 @@ export default function TermsPage() {
               <p className="text-sm text-foreground/70 leading-relaxed">
                 For questions about these Terms of Service, contact us at{" "}
                 <a
-                  href="mailto:support@textab.io"
+                  href="mailto:support@vault0.app"
                   className="text-foreground hover:underline"
                 >
-                  support@textab.io
+                  support@vault0.app
                 </a>
               </p>
             </div>

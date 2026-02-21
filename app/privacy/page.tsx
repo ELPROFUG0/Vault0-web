@@ -17,7 +17,7 @@ export default function PrivacyPage() {
               Privacy Policy
             </h1>
             <p className="text-foreground/65 text-sm max-w-md leading-relaxed">
-              At TexTab, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information.
+              At Vault0, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information.
             </p>
           </div>
 
@@ -32,7 +32,7 @@ export default function PrivacyPage() {
                 Information We Collect
               </h2>
               <p className="text-sm text-foreground/70 leading-relaxed mb-4">
-                TexTab is designed with privacy in mind. We collect minimal data:
+                Vault0 is designed with privacy in mind. We collect minimal data:
               </p>
               <ul className="space-y-2 text-sm text-foreground/70">
                 <li className="flex items-start gap-2">
@@ -85,7 +85,7 @@ export default function PrivacyPage() {
                 Third-Party Services
               </h2>
               <p className="text-sm text-foreground/70 leading-relaxed mb-4">
-                TexTab may interact with the following third-party services:
+                Vault0 may interact with the following third-party services:
               </p>
               <ul className="space-y-2 text-sm text-foreground/70">
                 <li className="flex items-start gap-2">
@@ -185,10 +185,10 @@ export default function PrivacyPage() {
               <p className="text-sm text-foreground/70 leading-relaxed">
                 If you have any questions about this Privacy Policy, please contact us at{" "}
                 <a
-                  href="mailto:support@textab.io"
+                  href="mailto:support@vault0.app"
                   className="text-foreground hover:underline"
                 >
-                  support@textab.io
+                  support@vault0.app
                 </a>
               </p>
             </div>

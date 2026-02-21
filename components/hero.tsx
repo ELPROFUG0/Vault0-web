@@ -15,7 +15,7 @@ export function Hero() {
           <div className="h-[500px] px-6 md:px-8 relative flex w-full flex-col gap-8 items-center justify-center">
             <div className="flex flex-col gap-4 items-center justify-center">
               <div className="opacity-0 animate-blur-fade-slide-in" style={{ animationDelay: "0.05s" }}>
-                <AwardBadge type="product-of-the-day" place={3} link="https://www.producthunt.com/products/textab" />
+                <AwardBadge type="product-of-the-day" place={3} link="https://www.producthunt.com/products/vault0" />
               </div>
               <div className="opacity-0 animate-blur-fade-slide-in" style={{ animationDelay: "0.08s" }}>
                 <Badge variant="beta">Currently in Beta</Badge>

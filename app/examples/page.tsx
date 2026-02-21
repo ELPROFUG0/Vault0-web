@@ -1,12 +1,5 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  CheckIcon,
-} from "@/components/icons/social-icons"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { MainContainer } from "@/components/main-container"
@@ -16,332 +9,144 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import Image from "next/image"
 
 const faqs = [
   {
-    question: "What is TexTab?",
-    answer: "TexTab is a macOS app that lets you transform any selected text using AI. Simply select text anywhere on your Mac, press a keyboard shortcut, and get instant results like grammar fixes, translations, summaries, and more.",
+    question: "What is Vault0?",
+    answer: "Vault0 is a macOS app that lets you capture and organize everything worth remembering. Screenshots, links, notes, and more - all in one beautiful place.",
   },
   {
-    question: "How do I use TexTab?",
-    answer: "Select any text in any app, press ⌘ + Shift + T (or your custom shortcut), choose an action from the popup menu, and the transformed text will be ready to use. It's that simple!",
+    question: "How do I use Vault0?",
+    answer: "Use the global shortcut to quickly capture anything. Screenshots are saved automatically, links are captured with metadata, and notes can be created instantly. Everything syncs via iCloud.",
   },
   {
-    question: "What platforms does TexTab support?",
-    answer: "TexTab is currently available for macOS. An iPhone app is coming soon, and we're exploring Windows and other platforms for the future.",
+    question: "What platforms does Vault0 support?",
+    answer: "Vault0 is currently available for macOS. An iPhone app is coming soon to sync your captures across devices.",
   },
   {
-    question: "Is TexTab free to use?",
-    answer: "TexTab offers a free trial so you can experience its features. After the trial, you can purchase a license to continue using all features without limitations.",
+    question: "Is Vault0 free to use?",
+    answer: "Vault0 offers an early supporter license for a one-time payment. This includes unlimited captures and 2 years of updates after stable release.",
   },
   {
-    question: "Does TexTab work offline?",
-    answer: "TexTab requires an internet connection to process text transformations since it uses AI models in the cloud. However, the app itself runs locally on your Mac.",
+    question: "Where is my data stored?",
+    answer: "All your data is stored locally on your Mac and synced via iCloud. We never see or store your content on our servers.",
   },
   {
     question: "Is my data private and secure?",
-    answer: "Yes, we take privacy seriously. Your text is only sent to our servers when you explicitly trigger an action, and we don't store your content after processing. See our privacy policy for more details.",
+    answer: "Yes, we take privacy seriously. Your captures are stored locally and synced via iCloud - we never have access to your data. See our privacy policy for more details.",
   },
   {
-    question: "Can I customize the keyboard shortcut?",
-    answer: "Yes! You can change the default keyboard shortcut (⌘ + Shift + T) to any combination you prefer in the app settings.",
-  },
-]
-
-const demos = [
-  {
-    id: "demo-grammar-main",
-    title: "Fix Grammar",
-    description: "Instantly fix spelling and grammar errors",
-    details: "Select any text with typos or grammar issues, trigger TexTab, and get instant corrections. Perfect for emails, documents, and social posts.",
-    features: [
-      "Fixes spelling mistakes automatically",
-      "Corrects grammar and punctuation",
-      "Maintains your original tone and style",
-      "Works in any text field",
-    ],
-  },
-  {
-    id: "demo-tweet-main",
-    title: "Write Tweets",
-    description: "Generate engaging tweets from any text",
-    details: "Transform your ideas into Twitter-ready content. Select your draft text, and TexTab will craft an engaging tweet with the right length and tone.",
-    features: [
-      "Optimizes for Twitter's character limit",
-      "Adds relevant hashtags and mentions",
-      "Creates engaging hooks",
-      "Multiple tone options available",
-    ],
-  },
-  {
-    id: "demo-gmail-main",
-    title: "Email Replies",
-    description: "Draft professional email responses",
-    details: "Reply to emails in seconds. Select the email you received, trigger TexTab, and get a professionally crafted response ready to send.",
-    features: [
-      "Matches the sender's formality level",
-      "Addresses all points in the original email",
-      "Professional and courteous tone",
-      "Customizable response length",
-    ],
-  },
-  {
-    id: "demo-code-main",
-    title: "Code Helper",
-    description: "Debug, explain, or refactor code",
-    details: "Get instant help with any code snippet. Select code in your IDE, trigger TexTab, and get explanations, bug fixes, or refactored versions in seconds.",
-    features: [
-      "Explains complex code in plain English",
-      "Suggests optimizations and fixes",
-      "Supports multiple programming languages",
-      "Generates documentation automatically",
-    ],
-  },
-  {
-    id: "demo-notion-main",
-    title: "Summarize Notes",
-    description: "Condense long text into key points",
-    details: "Turn lengthy documents, articles, or notes into concise summaries. Select any text and let TexTab extract the most important information instantly.",
-    features: [
-      "Summarizes long documents in seconds",
-      "Extracts key points and takeaways",
-      "Adjustable summary length",
-      "Works with any text source",
-    ],
+    question: "Can I customize the keyboard shortcuts?",
+    answer: "Yes! You can change the default keyboard shortcuts to any combination you prefer in the app settings.",
   },
 ]
 
 export default function ExamplesPage() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
-
-  const scrollToIndex = (index: number) => {
-    if (scrollContainerRef.current) {
-      const container = scrollContainerRef.current
-      const scrollWidth = container.scrollWidth / demos.length
-      container.scrollTo({ left: scrollWidth * index, behavior: "smooth" })
-    }
-  }
-
-  const handlePrev = () => {
-    const newIndex = currentIndex > 0 ? currentIndex - 1 : demos.length - 1
-    setCurrentIndex(newIndex)
-    scrollToIndex(newIndex)
-  }
-
-  const handleNext = () => {
-    const newIndex = currentIndex < demos.length - 1 ? currentIndex + 1 : 0
-    setCurrentIndex(newIndex)
-    scrollToIndex(newIndex)
-  }
-
-  useEffect(() => {
-    const container = scrollContainerRef.current
-    if (!container) return
-
-    let scrollTimeout: NodeJS.Timeout | null = null
-
-    const handleScroll = () => {
-      if (scrollTimeout) {
-        clearTimeout(scrollTimeout)
-      }
-      scrollTimeout = setTimeout(() => {
-        if (container) {
-          const scrollWidth = container.scrollWidth / demos.length
-          const newIndex = Math.round(container.scrollLeft / scrollWidth)
-          setCurrentIndex(prev => prev !== newIndex ? newIndex : prev)
-        }
-      }, 50)
-    }
-
-    container.addEventListener("scroll", handleScroll)
-    return () => {
-      container.removeEventListener("scroll", handleScroll)
-      if (scrollTimeout) {
-        clearTimeout(scrollTimeout)
-      }
-    }
-  }, [])
-
-  // Load demo scripts dynamically
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const w = window as any
-
-    // Load CSS first (check if already loaded)
-    let cssLink = document.querySelector('link[href="/demos.css"]') as HTMLLinkElement | null
-    if (!cssLink) {
-      cssLink = document.createElement("link")
-      cssLink.rel = "stylesheet"
-      cssLink.href = "/demos.css"
-      document.head.appendChild(cssLink)
-    }
-
-    // Load demo scripts sequentially and initialize (check if already loaded)
-    const loadScript = (src: string): Promise<void> => {
-      return new Promise((resolve) => {
-        // Check if script already exists
-        if (document.querySelector(`script[src="${src}"]`)) {
-          resolve()
-          return
-        }
-        const script = document.createElement("script")
-        script.src = src
-        script.onload = () => resolve()
-        document.body.appendChild(script)
-      })
-    }
-
-    const initDemos = async () => {
-      // Load all scripts first (only if not already loaded)
-      await loadScript("/demo-grammar.js")
-      await loadScript("/demo-tweet.js")
-      await loadScript("/demo-gmail.js")
-      await loadScript("/demo-code.js")
-      await loadScript("/demo-notion.js")
-
-      // Now manually initialize each demo since DOMContentLoaded already fired
-      const grammarContainer = document.getElementById("demo-grammar-main")
-      if (grammarContainer && w.GrammarDemo && !grammarContainer.dataset.initialized) {
-        new w.GrammarDemo(grammarContainer)
-        grammarContainer.dataset.initialized = "true"
-      }
-
-      const tweetContainer = document.getElementById("demo-tweet-main")
-      if (tweetContainer && w.TweetDemo && !tweetContainer.dataset.initialized) {
-        new w.TweetDemo(tweetContainer)
-        tweetContainer.dataset.initialized = "true"
-      }
-
-      const gmailContainer = document.getElementById("demo-gmail-main")
-      if (gmailContainer && w.GmailDemo && !gmailContainer.dataset.initialized) {
-        new w.GmailDemo(gmailContainer)
-        gmailContainer.dataset.initialized = "true"
-      }
-
-      const codeContainer = document.getElementById("demo-code-main")
-      if (codeContainer && w.CodeDemo && !codeContainer.dataset.initialized) {
-        new w.CodeDemo(codeContainer)
-        codeContainer.dataset.initialized = "true"
-      }
-
-      const notionContainer = document.getElementById("demo-notion-main")
-      if (notionContainer && w.NotionDemo && !notionContainer.dataset.initialized) {
-        new w.NotionDemo(notionContainer)
-        notionContainer.dataset.initialized = "true"
-      }
-    }
-
-    initDemos()
-  }, [])
-
   return (
     <>
       <MainContainer>
         <Header />
         <div className="relative flex flex-col">
-          {/* Demo Carousel */}
+          {/* Hero Image */}
           <div className="flex relative w-full ring-1 ring-tertiary opacity-0 [animation-delay:300ms] animate-fade-in">
-            <div className="relative z-40 w-full group">
+            <div className="relative z-40 w-full">
               <div className="relative">
-                {/* Scrollable Container */}
-                <div
-                  ref={scrollContainerRef}
-                  className="flex w-full overflow-x-auto snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-                >
-                  {demos.map((demo) => (
-                    <div
-                      key={demo.id}
-                      className="snap-center shrink-0 w-full px-0"
-                    >
-                      <div
-                        className="w-full h-[340px] xs:h-[380px] sm:h-[420px] md:h-[480px] lg:h-[540px] flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden"
-                        style={{ backgroundImage: 'url(/MacOS,Ventura.jpg)' }}
-                      >
-                        <div
-                          id={demo.id}
-                          className="w-full max-w-[600px] relative z-10 demo-container-wrapper"
-                        ></div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Previous Button */}
-                <div className="absolute inset-y-0 left-2 sm:left-4 flex items-center z-20 opacity-100 md:opacity-0 pointer-events-auto md:pointer-events-none transition-opacity duration-150 md:group-hover:opacity-100 md:group-hover:pointer-events-auto md:group-focus-within:opacity-100 md:group-focus-within:pointer-events-auto">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="size-8 p-0 rounded-full bg-foreground/50 hover:bg-foreground/60 text-white backdrop-blur-xl"
-                    onClick={handlePrev}
-                    aria-label="Previous demo"
-                  >
-                    <ChevronLeftIcon className="size-4" />
-                  </Button>
-                </div>
-
-                {/* Next Button */}
-                <div className="absolute inset-y-0 right-2 sm:right-4 flex items-center z-20 opacity-100 md:opacity-0 pointer-events-auto md:pointer-events-none transition-opacity duration-150 md:group-hover:opacity-100 md:group-hover:pointer-events-auto md:group-focus-within:opacity-100 md:group-focus-within:pointer-events-auto">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="size-8 p-0 rounded-full bg-foreground/50 hover:bg-foreground/60 text-white backdrop-blur-xl"
-                    onClick={handleNext}
-                    aria-label="Next demo"
-                  >
-                    <ChevronRightIcon className="size-4" />
-                  </Button>
+                <div className="w-full h-[340px] xs:h-[380px] sm:h-[420px] md:h-[480px] lg:h-[540px] flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden"
+                  style={{ backgroundImage: 'url(/MacOS,Ventura.jpg)' }}>
+                  <Image
+                    src="/capture-hero.png"
+                    alt="Vault0 App Preview"
+                    width={600}
+                    height={400}
+                    className="w-full max-w-[600px] relative z-10 object-contain"
+                  />
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Dots Navigation */}
-          <div className="relative bg-secondary/70 flex items-center justify-center px-8 py-6 text-sm text-foreground/60 text-center">
-            <div className="flex flex-1 items-center justify-center gap-1.5">
-              {demos.map((_, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  aria-label={`Go to demo ${index + 1}`}
-                  className={`size-1 rounded-[1px] transition-colors ${
-                    index === currentIndex
-                      ? "bg-foreground/80"
-                      : "bg-foreground/30"
-                  }`}
-                  onClick={() => {
-                    setCurrentIndex(index)
-                    scrollToIndex(index)
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Dynamic Demo Info Section */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 ring ring-tertiary">
-            <div className="ring-[0.5px] w-full ring-tertiary p-8">
-              <h2 className="text-lg font-medium">
-                {demos[currentIndex]?.title}
+          {/* Pricing Section */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 ring ring-foreground/10">
+            <div className="ring-[0.5px] w-full ring-foreground/10 p-8">
+              <h2 className="text-lg font-medium flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="size-6 text-orange-700/70" aria-hidden="true">
+                  <path d="M4 3C3.44772 3 3 3.44772 3 4V5C3 9.41828 6.58172 13 11 13V20C11 20.5523 11.4477 21 12 21C12.5523 21 13 20.5523 13 20V16C17.4183 16 21 12.4183 21 8V7C21 6.44772 20.5523 6 20 6H19C16.4707 6 14.2156 7.17377 12.7496 9.0063C11.8637 5.55265 8.72995 3 5 3H4Z" fill="currentColor"></path>
+                </svg>
+                Early Supporter License
               </h2>
-              <p className="mt-2 text-sm text-foreground/50">
-                {demos[currentIndex]?.description}
-              </p>
-              <p className="mt-4 text-sm text-foreground/70 leading-relaxed">
-                {demos[currentIndex]?.details}
-              </p>
-            </div>
-            <div className="ring-[0.5px] w-full ring-tertiary p-8">
-              {demos[currentIndex]?.features.map((feature, idx) => (
-                <div key={idx} className={`flex items-start gap-4 ${idx > 0 ? "mt-3" : ""}`}>
-                  <div className="mt-0.5">
-                    <CheckIcon className="size-5 text-foreground/60" />
+              <div className="my-6 flex flex-col gap-3">
+                <div className="flex items-center gap-2">
+                  <div className="font-[380] opacity-90 hover:opacity-100 py-1 transition-colors bg-foreground/10 text-foreground px-2 h-5 text-xs has-[.close-icon]:pr-1 rounded-full flex items-center gap-1">
+                    Save 20% (early supporter)
                   </div>
-                  <p className="text-sm text-foreground/70 leading-6">
-                    {feature}
-                  </p>
                 </div>
-              ))}
+                <div className="flex items-baseline gap-3">
+                  <div className="text-3xl font-medium tracking-tight">$39</div>
+                  <div className="text-xl text-foreground/70">one-time</div>
+                  <div className="text-xl text-foreground/50 line-through">$49</div>
+                </div>
+              </div>
+              <a href="https://sandbox-api.polar.sh/v1/checkout-links/polar_cl_MdCkWR7SJGbO7FEEK74SmwlN31U1V6DYii3ih3AFr8h/redirect" className="block" data-polar-checkout data-polar-checkout-theme="light">
+                <button data-slot="button" className="inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap font-medium transition-[transform] disabled:pointer-events-none disabled:opacity-20 outline-none bg-primary text-primary-foreground hover:bg-primary/90 h-10 rounded-xl px-4 text-sm w-full group/button">
+                  Get Early Supporter License
+                </button>
+              </a>
+              <div className="flex items-center gap-2 text-sm text-foreground/60 mt-4">
+                <span className="flex items-center gap-2">
+                  Secure checkout via
+                  <a href="https://polar.sh" target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-1">
+                    <svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-3.5" aria-hidden="true">
+                      <g clipPath="url(#clip0_1_4)">
+                        <path fillRule="evenodd" clipRule="evenodd" d="M66.4284 274.26C134.876 320.593 227.925 302.666 274.258 234.219C320.593 165.771 302.666 72.7222 234.218 26.3885C165.77 -19.9451 72.721 -2.0181 26.3873 66.4297C-19.9465 134.877 -2.01938 227.927 66.4284 274.26ZM47.9555 116.67C30.8375 169.263 36.5445 221.893 59.2454 256.373C18.0412 217.361 7.27564 150.307 36.9437 92.318C55.9152 55.2362 87.5665 29.3937 122.5 18.3483C90.5911 36.7105 62.5549 71.8144 47.9555 116.67ZM175.347 283.137C211.377 272.606 244.211 246.385 263.685 208.322C293.101 150.825 282.768 84.4172 242.427 45.2673C264.22 79.7626 269.473 131.542 252.631 183.287C237.615 229.421 208.385 265.239 175.347 283.137ZM183.627 266.229C207.945 245.418 228.016 210.604 236.936 168.79C251.033 102.693 232.551 41.1978 195.112 20.6768C214.97 47.3945 225.022 99.2902 218.824 157.333C214.085 201.724 200.814 240.593 183.627 266.229ZM63.7178 131.844C49.5155 198.43 68.377 260.345 106.374 280.405C85.9962 254.009 75.5969 201.514 81.8758 142.711C86.5375 99.0536 99.4504 60.737 116.225 35.0969C92.2678 55.983 72.5384 90.4892 63.7178 131.844ZM199.834 149.561C200.908 217.473 179.59 272.878 152.222 273.309C124.853 273.742 101.797 219.039 100.724 151.127C99.6511 83.2138 120.968 27.8094 148.337 27.377C175.705 26.9446 198.762 81.648 199.834 149.561Z" fill="currentColor"></path>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1_4">
+                          <rect width="300" height="300" fill="white"></rect>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    Polar
+                  </a>
+                </span>
+              </div>
+            </div>
+            <div className="ring-[0.5px] w-full ring-foreground/10 p-8">
+              <p className="mb-8 text-sm text-left text-foreground/70">
+                One-time purchase at the early supporter price. Unlimited captures and 2 years of updates after stable release.
+              </p>
+              <div className="flex items-start gap-4">
+                <div className="mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="size-6 text-foreground/60" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path fillRule="evenodd" clipRule="evenodd" d="M16.53 7.15214C16.9983 7.44485 17.1407 8.0618 16.848 8.53013L11.848 16.5301C11.6865 16.7886 11.4159 16.9592 11.1132 16.9937C10.8104 17.0282 10.5084 16.9227 10.2929 16.7072L7.29289 13.7072C6.90237 13.3167 6.90237 12.6836 7.29289 12.293C7.68342 11.9025 8.31658 11.9025 8.70711 12.293L10.8182 14.4042L15.152 7.47013C15.4447 7.0018 16.0617 6.85943 16.53 7.15214Z" fill="currentColor"></path>
+                  </svg>
+                </div>
+                <p className="text-sm text-foreground/70 leading-6">Unlimited captures</p>
+              </div>
+              <div className="flex items-start gap-4 mt-3">
+                <div className="mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="size-6 text-foreground/60" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path fillRule="evenodd" clipRule="evenodd" d="M16.53 7.15214C16.9983 7.44485 17.1407 8.0618 16.848 8.53013L11.848 16.5301C11.6865 16.7886 11.4159 16.9592 11.1132 16.9937C10.8104 17.0282 10.5084 16.9227 10.2929 16.7072L7.29289 13.7072C6.90237 13.3167 6.90237 12.6836 7.29289 12.293C7.68342 11.9025 8.31658 11.9025 8.70711 12.293L10.8182 14.4042L15.152 7.47013C15.4447 7.0018 16.0617 6.85943 16.53 7.15214Z" fill="currentColor"></path>
+                  </svg>
+                </div>
+                <p className="text-sm text-foreground/70 leading-6">Mac app license (up to 2 Macs)</p>
+              </div>
+              <div className="flex items-start gap-4 mt-3">
+                <div className="mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="size-6 text-foreground/60" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path fillRule="evenodd" clipRule="evenodd" d="M16.53 7.15214C16.9983 7.44485 17.1407 8.0618 16.848 8.53013L11.848 16.5301C11.6865 16.7886 11.4159 16.9592 11.1132 16.9937C10.8104 17.0282 10.5084 16.9227 10.2929 16.7072L7.29289 13.7072C6.90237 13.3167 6.90237 12.6836 7.29289 12.293C7.68342 11.9025 8.31658 11.9025 8.70711 12.293L10.8182 14.4042L15.152 7.47013C15.4447 7.0018 16.0617 6.85943 16.53 7.15214Z" fill="currentColor"></path>
+                  </svg>
+                </div>
+                <p className="text-sm text-foreground/70 leading-6">2 years of updates after stable release</p>
+              </div>
+              <div className="flex items-start gap-4 mt-3">
+                <div className="mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="size-6 text-foreground/60" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path fillRule="evenodd" clipRule="evenodd" d="M16.53 7.15214C16.9983 7.44485 17.1407 8.0618 16.848 8.53013L11.848 16.5301C11.6865 16.7886 11.4159 16.9592 11.1132 16.9937C10.8104 17.0282 10.5084 16.9227 10.2929 16.7072L7.29289 13.7072C6.90237 13.3167 6.90237 12.6836 7.29289 12.293C7.68342 11.9025 8.31658 11.9025 8.70711 12.293L10.8182 14.4042L15.152 7.47013C15.4447 7.0018 16.0617 6.85943 16.53 7.15214Z" fill="currentColor"></path>
+                  </svg>
+                </div>
+                <p className="text-sm text-foreground/70 leading-6">Priority email support</p>
+              </div>
             </div>
           </div>
 

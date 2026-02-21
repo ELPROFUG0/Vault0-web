@@ -35,7 +35,7 @@ export default function PaymentSuccessPage() {
   useEffect(() => {
     // Auto-open the app after a short delay
     const timer = setTimeout(() => {
-      window.location.href = "textab://payment/success"
+      window.location.href = "vault0://payment/success"
     }, 500)
 
     return () => clearTimeout(timer)
@@ -62,7 +62,7 @@ export default function PaymentSuccessPage() {
   }
 
   const handleOpenApp = () => {
-    window.location.href = "textab://payment/success"
+    window.location.href = "vault0://payment/success"
   }
 
   return (
@@ -138,8 +138,8 @@ export default function PaymentSuccessPage() {
               <div className="flex flex-col items-center gap-6 max-w-md text-center animate-blur-fade-slide-in">
                 {/* Logo */}
                 <img
-                  src="/logo textab.png"
-                  alt="TexTab"
+                  src="/logo-vault0.png"
+                  alt="Vault0"
                   className="size-20 object-contain"
                 />
 
@@ -162,7 +162,7 @@ export default function PaymentSuccessPage() {
                 {/* Action Button */}
                 <div className="flex flex-col gap-3 w-full max-w-xs [animation-delay:200ms] animate-blur-fade-slide-in">
                   <Button className="w-full rounded-lg" onClick={handleOpenApp}>
-                    Open TexTab
+                    Open Vault0
                   </Button>
                   <p className="text-xs text-foreground/50">
                     You can close this tab after opening the app.
@@ -176,7 +176,7 @@ export default function PaymentSuccessPage() {
               Questions about your subscription?{" "}
               <a
                 className="text-accent hover:underline"
-                href="mailto:support@textab.io"
+                href="mailto:support@vault0.app"
               >
                 Contact support
               </a>

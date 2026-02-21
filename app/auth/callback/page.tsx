@@ -57,7 +57,7 @@ function AuthCallbackContent() {
     } else if (code) {
       setAuthState("success")
       // Auto-open the app after a short delay
-      const appUrl = `textab://auth/callback?code=${encodeURIComponent(code)}`
+      const appUrl = `vault0://auth/callback?code=${encodeURIComponent(code)}`
       setTimeout(() => {
         window.location.href = appUrl
       }, 500)
@@ -89,7 +89,7 @@ function AuthCallbackContent() {
 
   const handleOpenApp = () => {
     if (code) {
-      const appUrl = `textab://auth/callback?code=${encodeURIComponent(code)}`
+      const appUrl = `vault0://auth/callback?code=${encodeURIComponent(code)}`
       window.location.href = appUrl
     }
   }
@@ -196,7 +196,7 @@ function AuthCallbackContent() {
                 {/* Description */}
                 <p className="text-foreground/65 text-sm leading-relaxed">
                   {authState === "loading" && "Please wait while we complete your sign in."}
-                  {authState === "success" && "You've successfully signed in. Click below to open TexTab."}
+                  {authState === "success" && "You've successfully signed in. Click below to open Vault0."}
                   {authState === "error" && errorMessage}
                 </p>
 
@@ -204,7 +204,7 @@ function AuthCallbackContent() {
                 {authState === "success" && (
                   <div className="flex flex-col gap-3 w-full max-w-xs [animation-delay:100ms] animate-blur-fade-slide-in">
                     <Button className="w-full rounded-lg" onClick={handleOpenApp}>
-                      Open TexTab
+                      Open Vault0
                     </Button>
                     <p className="text-xs text-foreground/50">
                       You can close this tab after opening the app.
@@ -229,7 +229,7 @@ function AuthCallbackContent() {
               Having trouble?{" "}
               <a
                 className="text-accent hover:underline"
-                href="mailto:support@textab.io"
+                href="mailto:support@vault0.app"
               >
                 Contact support
               </a>

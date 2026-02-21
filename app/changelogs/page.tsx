@@ -18,7 +18,7 @@ const versions: VersionEntry[] = [
   {
     version: "2.0.0",
     date: "January 2026",
-    title: "TexTab 2.0 - Complete Redesign",
+    title: "Vault0 2.0 - Complete Redesign",
     changes: [
       { type: "new", text: "Completely redesigned interface with modern aesthetics" },
       { type: "new", text: "New action editor with live preview" },
@@ -142,7 +142,7 @@ export default function ChangelogsPage() {
               Updates
             </h1>
             <p className="text-foreground/65 text-sm max-w-md leading-relaxed">
-              Stay up to date with the latest features, improvements, and bug fixes in TexTab.
+              Stay up to date with the latest features, improvements, and bug fixes in Vault0.
             </p>
           </div>
 

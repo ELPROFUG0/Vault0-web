@@ -80,7 +80,7 @@ const features = [
   {
     title: "Private & Local",
     description:
-      "Your data stays on your Mac. API calls go directly to providers. No TexTab servers in between.",
+      "Your data stays on your Mac. API calls go directly to providers. No Vault0 servers in between.",
     icon: <LockIcon className="size-4" />,
     delay: 0.9,
   },

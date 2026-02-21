@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-import { CloudBackground } from "@/components/cloud-background";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -16,7 +15,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "TexTab - AI Keyboard Shortcuts for macOS",
+  title: "Vault0 - AI Keyboard Shortcuts for macOS",
   description:
     "A personal library and quick capture tool for thoughts, ideas, links, visuals, and more.",
   authors: [{ name: "Dipmal Lakhani" }],
@@ -50,19 +49,19 @@ export const metadata: Metadata = {
     "voice notes app",
   ],
   creator: "Dipmal Lakhani",
-  publisher: "TexTab",
+  publisher: "Vault0",
   robots: "index, follow",
   openGraph: {
-    title: "TexTab - AI Keyboard Shortcuts for macOS",
+    title: "Vault0 - AI Keyboard Shortcuts for macOS",
     description:
       "A personal library and quick capture tool for thoughts, ideas, links, visuals, and more.",
-    url: "https://textab.io",
-    siteName: "TexTab",
+    url: "https://vault0.app",
+    siteName: "Vault0",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "/textabog.jpg",
+        url: "/vault0og.jpg",
         width: 1200,
         height: 630,
         type: "image/jpeg",
@@ -72,16 +71,16 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     creator: "@elmoidev",
-    title: "TexTab - AI Keyboard Shortcuts for macOS",
+    title: "Vault0 - AI Keyboard Shortcuts for macOS",
     description:
       "A personal library and quick capture tool for thoughts, ideas, links, visuals, and more.",
-    images: ["/textabog.jpg"],
+    images: ["/vault0og.jpg"],
   },
   icons: {
     icon: "/favicon.png",
     apple: "/favicon.png",
   },
-  metadataBase: new URL("https://textab.io"),
+  metadataBase: new URL("https://vault0.app"),
 };
 
 export default function RootLayout({
@@ -98,12 +97,12 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              name: "TexTab",
+              name: "Vault0",
               applicationCategory: "ProductivityApplication",
               operatingSystem: "macOS",
               description:
                 "A personal library and quick capture tool for thoughts, ideas, links, visuals, and more.",
-              url: "https://textab.io",
+              url: "https://vault0.app",
               author: {
                 "@type": "Person",
                 name: "Dipmal Lakhani",
@@ -116,11 +115,11 @@ export default function RootLayout({
             }),
           }}
         />
+        <script defer data-auto-init src="https://cdn.jsdelivr.net/npm/@polar-sh/checkout@latest/dist/embed.global.js"></script>
       </head>
       <body
         className={`${inter.variable} ${GeistMono.variable} ${instrumentSerif.variable} font-sans antialiased bg-web-background overscroll-contain`}
       >
-        <CloudBackground />
         {children}
       </body>
     </html>

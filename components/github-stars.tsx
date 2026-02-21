@@ -15,7 +15,7 @@ export function GitHubStars({ onMouseEnter, onMouseLeave }: GitHubStarsProps) {
     async function fetchStars() {
       try {
         const response = await fetch(
-          "https://api.github.com/repos/ELPROFUG0/TexTab"
+          "https://api.github.com/repos/Vault0App/Vault0"
         )
         if (response.ok) {
           const data = await response.json()
@@ -31,7 +31,7 @@ export function GitHubStars({ onMouseEnter, onMouseLeave }: GitHubStarsProps) {
 
   return (
     <a
-      href="https://github.com/ELPROFUG0/TexTab"
+      href="https://github.com/Vault0App/Vault0"
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center gap-1.5 px-3 h-7 rounded-full text-xs font-medium text-foreground/70 hover:text-foreground transition-colors duration-200"

@@ -5,14 +5,14 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --web-background: #F2F7FB;
+  --web-background: #F2F0EF;
   --tertiary: #e5e5e5;
   --muted-foreground: oklch(0.556 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --popover: oklch(1 0 0);
-  --base-background: #ffffff;
+  --base-background: #E9E7E6;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);

@@ -13,7 +13,7 @@ export default function WhyPage() {
               className="text-lg font-medium opacity-0 animate-blur-fade-slide-in"
               style={{ animationDelay: "0.05s" }}
             >
-              The idea behind TexTab
+              The idea behind Vault0
             </h2>
             <p
               className="opacity-0 animate-blur-fade-slide-in"
@@ -37,13 +37,13 @@ export default function WhyPage() {
               className="opacity-0 animate-blur-fade-slide-in"
               style={{ animationDelay: "0.3s" }}
             >
-              That&apos;s why I started building TexTab.
+              That&apos;s why I started building Vault0.
             </p>
             <p
               className="opacity-0 animate-blur-fade-slide-in"
               style={{ animationDelay: "0.4s" }}
             >
-              TexTab is a native Mac app that works everywhere. With a simple
+              Vault0 is a native Mac app that works everywhere. With a simple
               keyboard shortcut, you can transform any selected text without
               leaving the app you&apos;re working in.
             </p>
@@ -60,7 +60,7 @@ export default function WhyPage() {
               className="opacity-0 animate-blur-fade-slide-in"
               style={{ animationDelay: "0.6s" }}
             >
-              Our vision with TexTab is to bring AI assistance directly into
+              Our vision with Vault0 is to bring AI assistance directly into
               your workflow, making it as natural as copy and paste. No more
               app switching, no more broken focus—just seamless text
               transformation at your fingertips.
@@ -69,7 +69,7 @@ export default function WhyPage() {
               className="pt-4 border-t border-tertiary mt-8 opacity-0 animate-blur-fade-slide-in"
               style={{ animationDelay: "0.7s" }}
             >
-              <p className="font-medium text-foreground mb-0">The TexTab Team</p>
+              <p className="font-medium text-foreground mb-0">The Vault0 Team</p>
               <p className="text-xs mt-1 mb-0">Building tools for better workflows</p>
             </div>
           </div>

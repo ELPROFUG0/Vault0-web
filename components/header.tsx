@@ -20,7 +20,7 @@ export function Header() {
     async function fetchStars() {
       try {
         const response = await fetch(
-          "https://api.github.com/repos/ELPROFUG0/TexTab"
+          "https://api.github.com/repos/Vault0App/Vault0"
         )
         if (response.ok) {
           const data = await response.json()
@@ -122,7 +122,7 @@ export function Header() {
               <div className="flex items-center justify-end gap-2 px-0 animate-blue-fade-in">
                 {/* Desktop: GitHub with stars */}
                 <a
-                  href="https://github.com/ELPROFUG0/TexTab"
+                  href="https://github.com/Vault0App/Vault0"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hidden sm:block"
@@ -140,7 +140,7 @@ export function Header() {
                 </a>
                 {/* Mobile: GitHub link without stars */}
                 <a
-                  href="https://github.com/ELPROFUG0/TexTab"
+                  href="https://github.com/Vault0App/Vault0"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="sm:hidden"

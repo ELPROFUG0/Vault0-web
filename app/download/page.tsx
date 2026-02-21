@@ -15,7 +15,7 @@ import { MainContainer } from "@/components/main-container"
 
 export default function DownloadPage() {
   const handleDownload = (arch: "arm64" | "x64" | "universal") => {
-    const downloadUrl = "https://github.com/ELPROFUG0/TexTab/releases/download/v1.2/TexTab.dmg"
+    const downloadUrl = "https://github.com/Vault0App/Vault0/releases/download/v1.2/Vault0.dmg"
     window.open(downloadUrl, "_blank")
   }
 
@@ -30,10 +30,10 @@ export default function DownloadPage() {
               Indie Mac App
             </div>
             <h1 className="text-2xl font-medium tracking-tight text-foreground">
-              Download TexTab
+              Download Vault0
             </h1>
             <p className="text-foreground/65 text-sm max-w-md leading-relaxed">
-              TexTab is a bootstrapped, indie project. Try free to see if it fits
+              Vault0 is a bootstrapped, indie project. Try free to see if it fits
               your workflow, then grab a license to unlock full access and support
               development.
             </p>
@@ -108,7 +108,7 @@ export default function DownloadPage() {
               </div>
 
               <p className="text-xs text-foreground/50 pt-2">
-                We&apos;re working on bringing TexTab to more platforms. Stay tuned!
+                We&apos;re working on bringing Vault0 to more platforms. Stay tuned!
               </p>
             </div>
           </div>
@@ -117,7 +117,7 @@ export default function DownloadPage() {
           <div className="grid grid-cols-1 gap-0 divide-x divide-tertiary">
             {/* GitHub Link */}
             <a
-              href="https://github.com/ELPROFUG0/TexTab"
+              href="https://github.com/Vault0App/Vault0"
               target="_blank"
               rel="noopener noreferrer"
               className="border-none border-t border-tertiary p-6 flex items-center gap-6 hover:bg-secondary/50 transition-colors [animation-delay:200ms] animate-blur-fade-slide-in"
@@ -135,7 +135,7 @@ export default function DownloadPage() {
                   </div>
                 </div>
                 <span className="text-sm text-foreground/60 max-w-[500px]">
-                  Star the repo, report issues, or contribute code to help improve TexTab.
+                  Star the repo, report issues, or contribute code to help improve Vault0.
                 </span>
               </div>
               <ChevronRightIcon className="size-4 text-foreground/40 shrink-0" />
@@ -182,7 +182,7 @@ export default function DownloadPage() {
                   </div>
                 </div>
                 <span className="text-sm text-foreground/60 max-w-[500px]">
-                  Get help, share feedback, and connect with other TexTab users.
+                  Get help, share feedback, and connect with other Vault0 users.
                 </span>
               </div>
             </div>
@@ -193,9 +193,9 @@ export default function DownloadPage() {
             Questions or issues? Email{" "}
             <a
               className="text-accent hover:underline"
-              href="mailto:support@textab.io"
+              href="mailto:support@vault0.app"
             >
-              support@textab.io
+              support@vault0.app
             </a>
             . We read every email.
           </div>

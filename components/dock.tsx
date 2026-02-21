@@ -14,9 +14,9 @@ const dockApps = [
     icon: "/dock-icons/Calendar@4x 1.png"
   },
   {
-    id: "textab",
-    name: "TexTab",
-    icon: "/logo textab.png"
+    id: "vault0",
+    name: "Vault0",
+    icon: "/logo vault0.png"
   },
   {
     id: "pages",
@@ -34,9 +34,9 @@ export function Dock() {
   return (
     <MacOSDock
       apps={dockApps}
-      openApps={["textab"]}
+      openApps={["vault0"]}
       onAppClick={(appId) => {
-        if (appId === "textab") {
+        if (appId === "vault0") {
           window.location.href = "/download"
         }
       }}
