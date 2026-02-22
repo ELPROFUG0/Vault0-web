@@ -63,8 +63,8 @@ export default function ExamplesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 ring ring-foreground/10">
             <div className="ring-[0.5px] w-full ring-foreground/10 p-8">
               <h2 className="text-lg font-medium flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="size-6 text-orange-700/70" aria-hidden="true">
-                  <path d="M4 3C3.44772 3 3 3.44772 3 4V5C3 9.41828 6.58172 13 11 13V20C11 20.5523 11.4477 21 12 21C12.5523 21 13 20.5523 13 20V16C17.4183 16 21 12.4183 21 8V7C21 6.44772 20.5523 6 20 6H19C16.4707 6 14.2156 7.17377 12.7496 9.0063C11.8637 5.55265 8.72995 3 5 3H4Z" fill="currentColor"></path>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 text-amber-600/70" aria-hidden="true">
+                  <path fillRule="evenodd" d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 00-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08zm3.094 8.016a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clipRule="evenodd" />
                 </svg>
                 Early Supporter License
               </h2>

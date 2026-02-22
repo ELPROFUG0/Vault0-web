@@ -61,10 +61,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/vault0og.jpg",
-        width: 1200,
-        height: 630,
-        type: "image/jpeg",
+        url: "/vault0og.png",
+        width: 4000,
+        height: 2250,
+        type: "image/png",
       },
     ],
   },
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     title: "Vault0 - AI Keyboard Shortcuts for macOS",
     description:
       "A personal library and quick capture tool for thoughts, ideas, links, visuals, and more.",
-    images: ["/vault0og.jpg"],
+    images: ["/vault0og.png"],
   },
   icons: {
     icon: "/favicon.png",
