@@ -23,14 +23,13 @@ export function FeatureCard({
       <div style={{ animationDelay: `${delay}s` }} className="flex items-start gap-3">
         <div className="flex flex-col gap-1 flex-1 min-w-0">
           <h3 className="text-base flex items-start gap-3 font-medium text-foreground">
-            <span className="size-4 h-[1lh] text-foreground/50">{icon}</span>
             <span className="flex items-center gap-2">
               {title}
               {badge === "beta" && <Badge variant="beta">Beta</Badge>}
               {badge === "coming-soon" && <Badge>Coming Soon</Badge>}
             </span>
           </h3>
-          <p className="text-sm pl-7 text-foreground/70 leading-relaxed">
+          <p className="text-sm text-foreground/70 leading-relaxed">
             {description}
           </p>
         </div>

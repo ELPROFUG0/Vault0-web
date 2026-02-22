@@ -49,21 +49,14 @@ export default function ExamplesPage() {
         <Header />
         <div className="relative flex flex-col">
           {/* Hero Image */}
-          <div className="flex relative w-full ring-1 ring-tertiary opacity-0 [animation-delay:300ms] animate-fade-in">
-            <div className="relative z-40 w-full">
-              <div className="relative">
-                <div className="w-full h-[340px] xs:h-[380px] sm:h-[420px] md:h-[480px] lg:h-[540px] flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden"
-                  style={{ backgroundImage: 'url(/MacOS,Ventura.jpg)' }}>
-                  <Image
-                    src="/capture-hero.png"
-                    alt="Vault0 App Preview"
-                    width={600}
-                    height={400}
-                    className="w-full max-w-[600px] relative z-10 object-contain"
-                  />
-                </div>
-              </div>
-            </div>
+          <div className="flex relative w-full ring-1 ring-tertiary opacity-0 [animation-delay:300ms] animate-fade-in overflow-hidden">
+            <Image
+              src="/capture-hero.png"
+              alt="Vault0 App Preview"
+              width={4000}
+              height={2250}
+              className="w-full h-auto object-cover"
+            />
           </div>
 
           {/* Pricing Section */}

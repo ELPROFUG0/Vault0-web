@@ -50,9 +50,9 @@ export function Hero() {
                     Download for Mac
                   </Button>
                 </Link>
-                <Link href="/examples">
+                <Link href="/license">
                   <span className="shimmer-border rounded-full inline-flex">
-                    <Button variant="secondary">See Examples</Button>
+                    <Button variant="secondary">See License</Button>
                   </span>
                 </Link>
               </div>
