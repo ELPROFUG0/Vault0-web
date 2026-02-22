@@ -48,7 +48,6 @@ export function FeaturesGrid() {
                 title={feature.title}
                 description={feature.description}
                 icon={feature.icon}
-                badge={feature.badge}
                 delay={feature.delay}
               />
             ))}
