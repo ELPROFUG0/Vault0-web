@@ -42,6 +42,10 @@ const faqs = [
   },
 ]
 
+const checkoutUrl =
+  process.env.NEXT_PUBLIC_POLAR_CHECKOUT_URL ??
+  "https://sandbox-api.polar.sh/v1/checkout-links/polar_cl_MdCkWR7SJGbO7FEEK74SmwlN31U1V6DYii3ih3AFr8h/redirect"
+
 export default function ExamplesPage() {
   return (
     <>
@@ -75,12 +79,12 @@ export default function ExamplesPage() {
                   </div>
                 </div>
                 <div className="flex items-baseline gap-3">
-                  <div className="text-3xl font-medium tracking-tight">$39</div>
+                  <div className="text-3xl font-medium tracking-tight">$29</div>
                   <div className="text-xl text-foreground/70">one-time</div>
                   <div className="text-xl text-foreground/50 line-through">$49</div>
                 </div>
               </div>
-              <a href="https://sandbox-api.polar.sh/v1/checkout-links/polar_cl_MdCkWR7SJGbO7FEEK74SmwlN31U1V6DYii3ih3AFr8h/redirect" className="block" data-polar-checkout data-polar-checkout-theme="light">
+              <a href={checkoutUrl} className="block" data-polar-checkout data-polar-checkout-theme="light">
                 <button data-slot="button" className="inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap font-medium transition-[transform] disabled:pointer-events-none disabled:opacity-20 outline-none bg-primary text-primary-foreground hover:bg-primary/90 h-10 rounded-xl px-4 text-sm w-full group/button">
                   Get Early Supporter License
                 </button>

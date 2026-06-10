@@ -51,9 +51,7 @@ export function Hero() {
                   </Button>
                 </Link>
                 <Link href="/license">
-                  <span className="shimmer-border rounded-full inline-flex">
-                    <Button variant="secondary">See License</Button>
-                  </span>
+                  <Button variant="secondary">License</Button>
                 </Link>
               </div>
               <span className="text-foreground/50 text-sm">
