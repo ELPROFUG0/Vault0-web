@@ -49,8 +49,7 @@ export function readPolarConfig(): PolarConfig {
 export function cleanLicenseKey(value: unknown): string {
   return String(value ?? "")
     .trim()
-    .replaceAll("-", "")
-    .toUpperCase()
+    .replace(/\s/g, "")
 }
 
 export function jsonError(message: string, status = 400) {
