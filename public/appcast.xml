@@ -5,5 +5,24 @@
         <link>https://vault0.me/appcast.xml</link>
         <description>Most recent changes to Vault0.</description>
         <language>en</language>
+
+        <item>
+            <title>Version 1.0</title>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
+            <description><![CDATA[
+                <p>Initial Vault0 release.</p>
+            ]]></description>
+            <pubDate>Thu, 11 Jun 2026 02:37:02 +0000</pubDate>
+            <enclosure
+                url="https://vault0.me/downloads/Vault0-1.0.dmg"
+                sparkle:version="1"
+                sparkle:shortVersionString="1.0"
+                sparkle:edSignature="OLZhSorNTyIVGqNpSxGgcQQDzIL8bOUQmHxKvDhZluJy+Hb+eELFNCClQO90Kyo4LE+LwjSwXdC/ZEkETE5GCg=="
+                length="8681364"
+                type="application/octet-stream"
+            />
+        </item>
+
     </channel>
 </rss>
