@@ -7,19 +7,19 @@
         <language>en</language>
 
         <item>
-            <title>Version 1.0.1</title>
-            <sparkle:version>1.1</sparkle:version>
-            <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
+            <title>Version 1.0.2</title>
+            <sparkle:version>1.1.1</sparkle:version>
+            <sparkle:shortVersionString>1.0.2</sparkle:shortVersionString>
             <description><![CDATA[
-                <p>Improves CloudKit media sync across Macs and keeps dismissed update notes quiet until the next build.</p>
+                <p>Improves update detection, CloudKit media sync across Macs, and download delivery.</p>
             ]]></description>
-            <pubDate>Thu, 11 Jun 2026 03:29:30 +0000</pubDate>
+            <pubDate>Thu, 11 Jun 2026 04:16:00 +0000</pubDate>
             <enclosure
-                url="https://vault0.me/downloads/Vault0-1.0.1.dmg"
-                sparkle:version="1.1"
-                sparkle:shortVersionString="1.0.1"
-                sparkle:edSignature="gEHACWLA5Emawn9trTO3emkuiIrnLPIjWZFvc5sPMkdWUgqFf7ktGYS7poqiiOI2zpsdpWTpLg1AOkbS+4FQCw=="
-                length="8688303"
+                url="https://vault0.me/downloads/Vault0-1.0.2.dmg"
+                sparkle:version="1.1.1"
+                sparkle:shortVersionString="1.0.2"
+                sparkle:edSignature="T9BJBVvmOIdiwc+SdlgT46Iaxpdzgaj+ii/IMpmtDTIQM70OsCZJhhoHWxv/YlLb5p672DiQctlXiQqvJHD7Dw=="
+                length="8687003"
                 type="application/octet-stream"
             />
         </item>
