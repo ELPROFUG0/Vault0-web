@@ -13,13 +13,13 @@
             <description><![CDATA[
                 <p>Fixes video playback and CloudKit media restoration so MP4 files load correctly across Macs.</p>
             ]]></description>
-            <pubDate>Fri, 12 Jun 2026 01:07:12 +0000</pubDate>
+            <pubDate>Fri, 12 Jun 2026 01:38:04 +0000</pubDate>
             <enclosure
                 url="https://vault0.me/downloads/Vault0-1.0.4.dmg"
                 sparkle:version="1.1.3"
                 sparkle:shortVersionString="1.0.4"
-                sparkle:edSignature="zRsBvQmveMONwl3cHBjDdFzkrnOwrph12YSose/8i4G8gJNb3jvDGrYK7XEhnJqZDVwXMBdVy0N1hQgrAjdVBA=="
-                length="8714197"
+                sparkle:edSignature="VDlWYS40UNMw3ygL+ObAi0qKrGpYUVUDwuQmIQ90UlKAYC2HdpmatIX8/zBJqdg5sFm8Pur+c4U2/C76MG0KAw=="
+                length="8842089"
                 type="application/octet-stream"
             />
         </item>
