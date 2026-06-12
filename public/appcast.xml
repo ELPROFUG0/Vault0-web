@@ -7,19 +7,19 @@
         <language>en</language>
 
         <item>
-            <title>Version 1.0.5</title>
-            <sparkle:version>1.1.4</sparkle:version>
-            <sparkle:shortVersionString>1.0.5</sparkle:shortVersionString>
+            <title>Version 1.0.7</title>
+            <sparkle:version>1.1.7</sparkle:version>
+            <sparkle:shortVersionString>1.0.7</sparkle:shortVersionString>
             <description><![CDATA[
-                <p>Improves update checks on launch and sync reliability for deleted spaces and folders across Macs.</p>
+                <p>Deletes items, spaces, and folders instantly in the UI while syncing in the background. Deleting a folder now keeps its spaces and items.</p>
             ]]></description>
-            <pubDate>Fri, 12 Jun 2026 07:43:28 +0000</pubDate>
+            <pubDate>Fri, 12 Jun 2026 08:49:02 +0000</pubDate>
             <enclosure
-                url="https://vault0.me/downloads/Vault0-1.0.5.zip"
-                sparkle:version="1.1.4"
-                sparkle:shortVersionString="1.0.5"
-                sparkle:edSignature="moEsg74mS7gNJ886PlGGu4htceL1bs+XohlbGTP+zOH6Zs97LxQmiUAxkuGtE9MZJmzIOw99lQF7lLZPVxhgAA=="
-                length="8176861"
+                url="https://vault0.me/downloads/Vault0-1.0.7.zip"
+                sparkle:version="1.1.7"
+                sparkle:shortVersionString="1.0.7"
+                sparkle:edSignature="+Ik3L6MMVgRPqvKUk7itjrzyxLMaOJrq+RQjRS9NfzVEiZmENHXS1XpGssBXdk9SBb9/aY3iwxiVFA8sMcHnBA=="
+                length="8211710"
                 type="application/octet-stream"
             />
         </item>
