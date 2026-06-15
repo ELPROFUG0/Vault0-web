@@ -8,7 +8,7 @@ const footerLinks = [
   { label: "Updates", href: "/changelogs" },
   { label: "Terms", href: "/terms" },
   { label: "Privacy", href: "/privacy" },
-  { label: "Feedback", href: "/feedback" },
+  { label: "Feature request", href: "https://vaultt.userjot.com/board/features?cursor=1&order=top&limit=10" },
   { label: "support@vault0.app", href: "mailto:support@vault0.app" },
 ]
 
@@ -68,7 +68,7 @@ export function Footer() {
           <Link
             key={link.label}
             href={link.href}
-            target={link.href.startsWith("mailto:") ? "_blank" : "_self"}
+            target={link.href.startsWith("http") || link.href.startsWith("mailto:") ? "_blank" : "_self"}
             rel="noopener noreferrer"
             className="rounded-full flex items-center gap-2 px-3 h-7 text-foreground/70 font-medium transition-colors duration-200 hover:text-foreground text-xs"
             onMouseEnter={handleMouseEnter}
