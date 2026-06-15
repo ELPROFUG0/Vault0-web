@@ -44,7 +44,7 @@ const faqs = [
 
 const checkoutUrl =
   process.env.NEXT_PUBLIC_POLAR_CHECKOUT_URL ??
-  "https://sandbox-api.polar.sh/v1/checkout-links/polar_cl_MdCkWR7SJGbO7FEEK74SmwlN31U1V6DYii3ih3AFr8h/redirect"
+  "https://buy.polar.sh/polar_cl_T0gcIgclGHjXwnQmI1CLgdkqEwJUmDL1Azjm72tMSXL"
 
 export default function ExamplesPage() {
   return (

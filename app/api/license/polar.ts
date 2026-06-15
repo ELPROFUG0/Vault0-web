@@ -31,15 +31,15 @@ export type PolarActivationResponse = {
 type PolarConfig = {
   apiBaseUrl: string
   accessToken: string
-  organizationId: string
+  organizationId?: string
 }
 
 export function readPolarConfig(): PolarConfig {
   const accessToken = process.env.POLAR_ACCESS_TOKEN
   const organizationId = process.env.POLAR_ORGANIZATION_ID
-  const apiBaseUrl = process.env.POLAR_API_BASE_URL ?? "https://sandbox-api.polar.sh/v1"
+  const apiBaseUrl = process.env.POLAR_API_BASE_URL ?? "https://api.polar.sh/v1"
 
-  if (!accessToken || !organizationId) {
+  if (!accessToken) {
     throw new Error("Missing Polar license environment variables")
   }
 
@@ -61,16 +61,17 @@ export async function polarRequest<T>(
   body: JsonObject
 ): Promise<{ data: T | null; response: Response; error: string | null }> {
   const config = readPolarConfig()
+  const requestBody = config.organizationId
+    ? { ...body, organization_id: config.organizationId }
+    : body
+
   const response = await fetch(`${config.apiBaseUrl}${path}`, {
     method: "POST",
     headers: {
       "Authorization": `Bearer ${config.accessToken}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      ...body,
-      organization_id: config.organizationId,
-    }),
+    body: JSON.stringify(requestBody),
     cache: "no-store",
   })
 
