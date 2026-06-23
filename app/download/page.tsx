@@ -15,7 +15,7 @@ import { MainContainer } from "@/components/main-container"
 
 export default function DownloadPage() {
   const handleDownload = (arch: "arm64" | "x64" | "universal") => {
-    const downloadUrl = "https://vault0.me/downloads/Vault0-1.0.11.dmg"
+    const downloadUrl = "https://vault0.me/downloads/Vault0-1.0.12.dmg"
     window.open(downloadUrl, "_blank")
   }
 
@@ -49,7 +49,7 @@ export default function DownloadPage() {
                   Download for Mac
                 </h2>
                 <p className="text-sm text-foreground/60">
-                  Version 1.0.11 • macOS 14.0+
+                  Version 1.0.12 • macOS 14.0+
                 </p>
               </div>
 

@@ -7,19 +7,19 @@
         <language>en</language>
 
         <item>
-            <title>Version 1.0.11</title>
-            <sparkle:version>1.1.11</sparkle:version>
-            <sparkle:shortVersionString>1.0.11</sparkle:shortVersionString>
+            <title>Version 1.0.12</title>
+            <sparkle:version>1.1.12</sparkle:version>
+            <sparkle:shortVersionString>1.0.12</sparkle:shortVersionString>
             <description><![CDATA[
-                <p>Improves onboarding permissions, production license activation, audio details, card styling, and update behavior.</p>
+                <p>Includes the latest Vault0 improvements and fixes.</p>
             ]]></description>
-            <pubDate>Tue, 16 Jun 2026 01:30:29 +0000</pubDate>
+            <pubDate>Tue, 23 Jun 2026 02:02:26 +0000</pubDate>
             <enclosure
-                url="https://vault0.me/downloads/Vault0-1.0.11.zip"
-                sparkle:version="1.1.11"
-                sparkle:shortVersionString="1.0.11"
-                sparkle:edSignature="7wcvB3htSyjiaIDmqO0/T0Kmaupz7R16gn23J5tX8mGfy5zDCWNslqZZJPgfgT7c4R2XMdKy44/v+lQ1Ck5jCw=="
-                length="8619499"
+                url="https://vault0.me/downloads/Vault0-1.0.12.zip"
+                sparkle:version="1.1.12"
+                sparkle:shortVersionString="1.0.12"
+                sparkle:edSignature="qoFrMpGNqQ04uKh5f7ktj1T7LKYFcY8IjyXD9qKOlglZOCTUhI+gMr/222iH+A34bOnqG+9Qv/KyVEJLKxX5Dw=="
+                length="10853172"
                 type="application/octet-stream"
             />
         </item>
