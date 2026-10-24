@@ -7,6 +7,32 @@
         <language>en</language>
 
         <item>
+            <title>Version 1.0.13</title>
+            <sparkle:version>1.1.13</sparkle:version>
+            <sparkle:shortVersionString>1.0.13</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<ul>
+<li>Find similar images, links, and notes with a local model and stricter relevance filtering.</li>
+<li>Download progress and animated Similar results.</li>
+<li>Remember the Info or Similar panel, its width, and whether it is open.</li>
+<li>Floating Liquid Glass controls for images, PDFs, and links.</li>
+<li>Blue selection border for context menus and improved detail headers.</li>
+<li>A unified library with All, Pinned, Inbox, and Later; the app opens directly in All.</li>
+</ul>
+]]></description>
+            <pubDate>Sat, 24 Oct 2026 21:33:17 +0000</pubDate>
+            <enclosure
+                url="https://vault0.me/downloads/Vault0-1.0.13.zip"
+                sparkle:version="1.1.13"
+                sparkle:shortVersionString="1.0.13"
+                sparkle:edSignature="9qnI7ZtL/56nnfRHvVNKJdO3i+MafNg1ie1woaUZNjk77+C/LHz5pNTHyXU/fi78hQPRhpS73xflmtErbcP5Bw=="
+                length="56395093"
+                type="application/octet-stream"
+            />
+        </item>
+
+
+        <item>
             <title>Version 1.0.12</title>
             <sparkle:version>1.1.12</sparkle:version>
             <sparkle:shortVersionString>1.0.12</sparkle:shortVersionString>
