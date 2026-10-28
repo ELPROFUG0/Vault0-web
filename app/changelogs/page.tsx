@@ -16,6 +16,20 @@ interface VersionEntry {
 
 const versions: VersionEntry[] = [
   {
+    version: "1.0.14",
+    date: "October 27, 2026",
+    title: "A smarter, smoother capture library",
+    changes: [
+      { type: "new", text: "Search locally by meaning, visual details, text, links and colors in the library and Spotlight." },
+      { type: "new", text: "Organize captures with smart spaces, suggested tags and on-device summaries when Apple Intelligence is available." },
+      { type: "new", text: "Drag files and folders into Vault0, capture browser links and save copied content from the notch." },
+      { type: "new", text: "Seven interface languages and an expanded catalog of AI models." },
+      { type: "improved", text: "Faster preview caching, smoother scrolling, richer Info and Similar panels, and Liquid Glass controls." },
+      { type: "improved", text: "Expanded item menus, remembered preferences and a refreshed What's New panel." },
+      { type: "fixed", text: "Corrected grid bouncing, context menu positioning, clipped badges, theme transitions and sidebar tag counts." },
+    ],
+  },
+  {
     version: "2.0.0",
     date: "January 2026",
     title: "Vault0 2.0 - Complete Redesign",

@@ -7,6 +7,26 @@
         <language>en</language>
 
         <item>
+            <title>Version 1.0.14</title>
+            <sparkle:version>1.1.14</sparkle:version>
+            <sparkle:shortVersionString>1.0.14</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<ul>
+<li>Local intelligent search in the library and Spotlight, with Words and Meaning filters.</li>
+<li>Smart spaces, automatic tag suggestions and on-device summaries when Apple Intelligence is available.</li>
+<li>Drag files and folders into Vault0; capture browser links and copied content from the notch.</li>
+<li>Faster preview caching and smoother scrolling, with fixes for grid edges and context menus.</li>
+<li>Refined Info and Similar panels, Liquid Glass controls and expanded item menus.</li>
+<li>Seven interface languages and an expanded AI model catalog.</li>
+<li>Updated What's New panel and corrected sidebar tag counts.</li>
+</ul>]]></description>
+            <pubDate>Wed, 28 Oct 2026 01:05:32 +0000</pubDate>
+            <enclosure url="https://vault0.me/downloads/Vault0-1.0.14.zip"
+                sparkle:version="1.1.14" sparkle:shortVersionString="1.0.14"
+                sparkle:edSignature="8vRP4/tJ+A44RRP0QJ0OVRjuF77vAJugg+5mUP2SXpWXY+5bZpb9qxPvZ2C6g/LsTTfy5eMH/owvzdqicTsKAw==" length="64696991" type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.0.13</title>
             <sparkle:version>1.1.13</sparkle:version>
             <sparkle:shortVersionString>1.0.13</sparkle:shortVersionString>
